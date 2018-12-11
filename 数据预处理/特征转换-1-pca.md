@@ -20,7 +20,7 @@ $\operatorname { Score } ( \overline { X } ) = \sum \limits_ { j = 1 } ^ { d } \
 
 
 具体的算法步骤如下：
-![](./_image/2018-09-23-18-32-41.jpg)
+![](../_image/2018-09-23-18-32-41.jpg)
 
 
 # 3. 参考文献
