@@ -1,6 +1,4 @@
 
-[TOC]
-
 # 算法原理-句话说明
 
 DBSCAN算法用作异常检测的原理是，在聚类过程中通过寻找核心点来扩展类簇边界，得到样本空间中不同的高密度区域，而没有落入高密度区域的样本点就被视为异常点。
@@ -9,65 +7,48 @@ DBSCAN算法用作异常检测的原理是，在聚类过程中通过寻找核�
 
 # 算法原理-文档
 
-
-
 DBSCAN算法用作异常检测的原理是，在聚类过程中通过寻找核心点来扩展类簇边界，得到样本空间中不同的高密度区域，而没有落入高密度区域的样本点就被视为异常点。
 
 
 
 具体来说,DBSCAN算法将样本点定义为三种类型：
 
-- ![](./_image/2018-09-15-23-13-34.png)
 
-- 核心点（core points)：下图中的红色点，满足$\epsilon $邻域内的邻居个数超过minPoints。
+- 核心点（core points)：下图中的红色点，满足$$\epsilon $$邻域内的邻居个数超过minPoints。
 - 边缘点（border points）：类簇边缘的点。
 - 异常点(outliers): 如果某个点附近不存在可达点，那就定义为异常点，下图中的蓝色点。
 
-另一个类簇中的core points 和border points之间存在两种空间关系：
-  - 直接可达(directly reachable points):如果p是核心点，那么p的$\epsilon $邻域内所有的点都是直接可达点。
-    如果p 是core points且$distance(p, q) < \epsilon$, 就说q能直接可达p。
-  - 可达（reachable points）:如果p是核心点，p直接可达另外的核心点p2，p10，而p10直接可达q，则说q可达p。
-    如果存在路径$p_1, \dots, p_n $且 $p_1 = p, p_n = q$, 这里$p_{i+1}$直接可达$p_{i}$，路径上除了$p_n$都必须为core points , 就说q可达p。下图中B到A是可达的，C到A也是可达的。
-  - 密度可连（density-connected ）：上面定义的可达是一种非对称的关系，对于两个none-core的点p，q，如何定义“可达”这种位置关系呢？这里引入了密度可达的概念，如果存在core point-o，使得p 和 q都可达o，则p和q密度可连。
-  - 类簇： 基于密度可连的定义，一个类簇里面所有的点都是密度可连的。如果某个点可对簇里面的任意一个点都是密度可达的，那么这个点也属于这个簇。
+![](../_image/2018-09-15-23-13-34.png)
 
 
-聚类的训练 ，即构造类簇的过程如下：
-- 查找每个数据点的 $\epsilon-$ 邻居，并且标记core points。.
+聚类，即构造类簇的过程如下：
+- 查找每个数据点的 $$\epsilon-$$ 邻居，并且标记core points。.
 - 在图中查找连接起来的core points，忽略掉non-core points。
-- 如果non-core point最近的类簇是$\epsilon-邻居$，就把non-core point分配给该类簇，否则它就是噪声。
+- 如果non-core point最近的类簇是$$\epsilon-$$邻居，就把non-core point分配给该类簇，否则它就是噪声。
 
-## 参数说明
+算法判断新样本点是否异常的原理是：如果在某类中存在样本点，使得新的样本点位于该样本点的$$\epsilon$$邻域内，那么新样本点就属于这个类簇。不属于任何一类的样本点，就是噪声点或者异常点.
 
-训练过程最关键的参数：
-- 1. epsilon: 邻域的大小。
-- 2. minPoints: core-point附近邻居的个数.
-     其他参数：
+# 算法原理-参数
+
+- epsilon: 邻域的大小。
+- minPoints: core-point附近邻居的个数.
      
 
 
 
-# 算法原理-可视化demo
+# 算法原理可视化-交互式
 
-在选择算法的环节，为了让用户能快速了解算法和上手操作，平台提文档以及可跟用户交互的形式，对算法的原理和超参的含义解释说明，演示算法的内部运行机制，。
-
-
-
-demo中需要增加文字说明：
 
 下图是DBSCAN算法可视化的例子(由meifan提供),  通过交互图展示训练过程可视化和训练结果。
 
-两个关键参数
-​     - 1. epsilon: 邻域的大小
-- 2. minPoints: core-point附近邻居的个数.
-  如下图所示   
-  ![dbscan_参数解释](../_image/dbscan_参数解释.png)
-  点击"run"就开始进入训练过程可视化。
-  ![dbscan_training](../_image/dbscan_training.png)
+如下图所示   
+![dbscan_参数解释](../_image/dbscan_参数解释.png)
+点击"run"就开始进入训练过程可视化。
+![dbscan_training](../_image/dbscan_training.png)
 
 
 
-# 场景可视化-(交互式demo)
+# 场景可视化-交互式
 
 针对时间序列异常检测场景，该算法可以输出每个时刻的异常程度以及是否异常的结果。
 如下图所示，横轴表示时间，蓝色的周期性波动曲线表示检测的指标，
@@ -80,9 +61,5 @@ demo中需要增加文字说明：
 
 
 
-#  [附]应用参数抽象
 
-predict方法用来预测新样本点是否属于已有的类簇。属于某个类的定义是：如果在某类中存在样本点，使得新的样本点位于该样本点的$\epsilon$邻域内，那么新样本点就属于这个类簇。不属于任何一类的样本点，就是噪声点或者异常点.
-
-![image-20181110160302686](/Users/stellazhao/Library/Application Support/typora-user-images/image-20181110160302686.png)
 
