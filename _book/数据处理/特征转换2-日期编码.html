@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>预处理2-缺失值填充 · GitBook</title>
+        <title>特征转换2-日期编码 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="预处理3-异常值处理.html" />
     
-    
-    <link rel="prev" href="预处理1-时序采样.html" />
+    <link rel="prev" href="特征转换1-pca.html" />
     
 
     </head>
@@ -160,7 +158,7 @@
                 <span>
             
                     
-                    数据预处理
+                    数据处理
             
                 </span>
             
@@ -182,7 +180,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="预处理2-缺失值填充.html">
+        <li class="chapter " data-level="1.3.2" data-path="预处理2-缺失值填充.html">
             
                 <a href="预处理2-缺失值填充.html">
             
@@ -221,12 +219,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="特征提取-1-加载特征库.md">
+        <li class="chapter " data-level="1.3.5" data-path="特征提取1-加载特征库.html">
             
-                <span>
+                <a href="特征提取1-加载特征库.html">
             
                     
-                    特征提取-1-加载特征库
+                    特征提取1-加载特征库
             
                 </a>
             
@@ -234,12 +232,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="特征转换-1-pca.md">
+        <li class="chapter " data-level="1.3.6" data-path="特征转换1-pca.html">
             
-                <span>
+                <a href="特征转换1-pca.html">
             
                     
-                    特征转换-1-pca
+                    特征转换1-pca
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.7" data-path="特征转换2-日期编码.html">
+            
+                <a href="特征转换2-日期编码.html">
+            
+                    
+                    特征转换2-日期编码
             
                 </a>
             
@@ -402,20 +413,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../评估指标/混淆矩阵.md">
-            
-                <span>
-            
-                    
-                    混淆矩阵
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.2" data-path="../评估指标/指定敏感度.html">
+        <li class="chapter " data-level="1.5.1" data-path="../评估指标/指定敏感度.html">
             
                 <a href="../评估指标/指定敏感度.html">
             
@@ -463,7 +461,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >预处理2-缺失值填充</a>
+        <a href=".." >特征转换2-日期编码</a>
     </h1>
 </div>
 
@@ -479,55 +477,18 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x7B97;&#x6CD5;&#x8BF4;&#x660E;">&#x7B97;&#x6CD5;&#x8BF4;&#x660E;</h1>
-<p>&#x7F3A;&#x5931;&#x503C;&#x586B;&#x5145;&#x8282;&#x70B9;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x586B;&#x5145;&#x6570;&#x636E;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x7F3A;&#x5931;&#x503C;&#x6216;&#x8005;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x5176;&#x4ED6;&#x5F02;&#x5E38;&#x503C;&#x3002;</p>
-<h1 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h1>
-<h2 id="&#x586B;&#x5145;&#x65B9;&#x6CD5;&#x8BF4;&#x660E;">&#x586B;&#x5145;&#x65B9;&#x6CD5;&#x8BF4;&#x660E;</h2>
-<table>
-<thead>
-<tr>
-<th>&#x65B9;&#x6CD5;</th>
-<th>&#x8BF4;&#x660E;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int/float</td>
-<td>&#x7528;&#x6237;&#x53EF;&#x6307;&#x5B9A;&#x586B;&#x5145;&#x7684;&#x6570;&#x503C;</td>
-</tr>
-<tr>
-<td>&apos;previous&apos;</td>
-<td>&#x4E0A;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
-</tr>
-<tr>
-<td>&apos;next&apos;</td>
-<td>&#x4E0B;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
-</tr>
-<tr>
-<td>&apos;nearest&apos;</td>
-<td>&#x8DDD;&#x79BB;&#x6700;&#x8FD1;&#x7684;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
-</tr>
-<tr>
-<td>&apos;linear&apos;</td>
-<td>&#x76F8;&#x90BB;&#x975E;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#xFF08;&#x4EC5;&#x9650;&#x6570;&#x503C;&#x3001;duration &#x548C; datetime &#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF09;</td>
-</tr>
-<tr>
-<td>&apos;spline&apos;</td>
-<td>&#x5206;&#x6BB5;&#x4E09;&#x6B21;&#x6837;&#x6761;&#x63D2;&#x503C;&#xFF08;&#x4EC5;&#x9650;&#x6570;&#x503C;&#x3001;duration &#x548C; datetime &#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF09;</td>
-</tr>
-<tr>
-<td>&apos;pchip&apos;</td>
-<td>&#x4FDD;&#x5F62;&#x5206;&#x6BB5;&#x4E09;&#x6B21;&#x6837;&#x6761;&#x63D2;&#x503C;&#xFF08;&#x4EC5;&#x9650;&#x6570;&#x503C;&#x3001;duration &#x548C; datetime &#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF09;</td>
-</tr>
-<tr>
-<td>&apos;movmean&apos;</td>
-<td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A; window &#x7684;&#x79FB;&#x52A8;&#x5747;&#x503C;&#xFF08;&#x4EC5;&#x9650;&#x6570;&#x503C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF09;</td>
-</tr>
-<tr>
-<td>&apos;movmedian&apos;</td>
-<td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A; window &#x7684;&#x79FB;&#x52A8;&#x4E2D;&#x4F4D;&#x6570;&#xFF08;&#x4EC5;&#x9650;&#x6570;&#x503C;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF09;</td>
-</tr>
-</tbody>
-</table>
+<p>&#x8BE5;&#x8282;&#x70B9;&#x5BF9;&#x65E5;&#x671F;&#x578B;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#xFF0C;&#x5373;&#x63D0;&#x53D6;&#x8DDF;&#x65F6;&#x95F4;&#x672C;&#x8EAB;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x6708;&#x4EFD;&#xFF0C;&#x65F6;&#x523B;&#x7B49;&#xFF1A;</p>
+<h1 id="&#x53C2;&#x6570;&#x8BF4;&#x660E;">&#x53C2;&#x6570;&#x8BF4;&#x660E;</h1>
+<ul>
+<li>feature_names&#xFF1A;&#x5F85;&#x63D0;&#x53D6;&#x7684;&#x65F6;&#x5E8F;&#x7279;&#x5F81;,&#x53EF;&#x9009;&#x503C;&#x4E3A;&quot;day_of_week&quot;, &quot;weekend&quot;, &quot;day&quot;, &quot;hour&quot;, &quot;minutes&quot;&#xFF0C;&#x5177;&#x4F53;&#x53D6;&#x503C;&#x7684;&#x542B;&#x4E49;&#x5982;&#x4E0B;&#x3002;<ul>
+<li>day_of_week: &#x8BE5;&#x65E5;&#x671F;&#x662F;&#x5468;&#x51E0;&#x3002;</li>
+<li>weekend: &#x8BE5;&#x65E5;&#x671F;&#x662F;&#x5426;&#x662F;&#x5468;&#x672B;&#x3002;</li>
+<li>day: &#x8BE5;&#x65E5;&#x671F;&#x662F;&#x5F53;&#x6708;&#x4E2A;&#x6708;&#x7684;&#x7B2C;&#x51E0;&#x5929;&#x3002;</li>
+<li>hour: &#x8BE5;&#x65F6;&#x523B;&#x662F;&#x7B2C;&#x51E0;&#x70B9;&#x3002;</li>
+<li>minutes: &#x8BE5;&#x65F6;&#x523B;&#x662F;&#x7B2C;&#x591A;&#x5C11;&#x5206;&#x949F;&#x3002;</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -555,14 +516,10 @@
 
             
                 
-                <a href="预处理1-时序采样.html" class="navigation navigation-prev " aria-label="Previous page: 预处理1-时序采样">
+                <a href="特征转换1-pca.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 特征转换1-pca">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="预处理3-异常值处理.html" class="navigation navigation-next " aria-label="Next page: 预处理3-异常值处理">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -571,7 +528,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"next":{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"path":"数据预处理/预处理3-异常值处理.md","ref":"数据预处理/预处理3-异常值处理.md","articles":[]},"previous":{"title":"预处理1-时序采样","level":"1.3.1","depth":2,"path":"数据预处理/预处理1-时序采样.md","ref":"数据预处理/预处理1-时序采样.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据预处理/预处理2-缺失值填充.md","mtime":"2018-12-18T02:56:20.361Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-18T03:15:43.362Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"特征转换2-日期编码","level":"1.3.7","depth":2,"next":{"title":"算法选择","level":"1.4","depth":1,"ref":"","articles":[{"title":"算法1-高斯分布检测算法","level":"1.4.1","depth":2,"path":"算法选择/算法1-高斯分布检测算法.md","ref":"算法选择/算法1-高斯分布检测算法.md","articles":[]},{"title":"算法2-滑动平均检测算法","level":"1.4.2","depth":2,"path":"算法选择/算法2-滑动平均检测算法.md","ref":"算法选择/算法2-滑动平均检测算法.md","articles":[]},{"title":"算法3-指数滑动平均检测算法","level":"1.4.3","depth":2,"path":"算法选择/算法3-指数滑动平均检测算法.md","ref":"算法选择/算法3-指数滑动平均检测算法.md","articles":[]},{"title":"算法4-dbscan","level":"1.4.4","depth":2,"path":"算法选择/算法4-dbscan.md","ref":"算法选择/算法4-dbscan.md","articles":[]},{"title":"算法5-孤立森林iforest","level":"1.4.5","depth":2,"path":"算法选择/算法5-孤立森林iforest.md","ref":"算法选择/算法5-孤立森林iforest.md","articles":[]},{"title":"算法6-局部异常因子lof","level":"1.4.6","depth":2,"path":"算法选择/算法6-局部异常因子lof.md","ref":"算法选择/算法6-局部异常因子lof.md","articles":[]},{"title":"算法7-单分类SVM","level":"1.4.7","depth":2,"path":"算法选择/算法7-单分类SVM.md","ref":"算法选择/算法7-单分类SVM.md","articles":[]},{"title":"算法8-随机森林","level":"1.4.8","depth":2,"path":"算法选择/算法8-随机森林.md","ref":"算法选择/算法8-随机森林.md","articles":[]},{"title":"算法9-gbdt","level":"1.4.9","depth":2,"path":"算法选择/算法9-gbdt.md","ref":"算法选择/算法9-gbdt.md","articles":[]}]},"previous":{"title":"特征转换1-pca","level":"1.3.6","depth":2,"path":"数据处理/特征转换1-pca.md","ref":"数据处理/特征转换1-pca.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/特征转换2-日期编码.md","mtime":"2018-12-18T07:49:34.465Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

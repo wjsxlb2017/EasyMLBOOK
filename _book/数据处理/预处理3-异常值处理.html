@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>特征工程 · GitBook</title>
+        <title>预处理3-异常值处理 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,8 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="预处理4-标准化.html" />
     
-    <link rel="prev" href="机器学习的一些术语.html" />
+    
+    <link rel="prev" href="预处理2-缺失值填充.html" />
     
 
     </head>
@@ -122,9 +124,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="机器学习的一些术语.html">
+        <li class="chapter " data-level="1.2.1" data-path="../机器学习基础/机器学习的一些术语.html">
             
-                <a href="机器学习的一些术语.html">
+                <a href="../机器学习基础/机器学习的一些术语.html">
             
                     
                     机器学习的一些术语
@@ -135,9 +137,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="特征工程.html">
+        <li class="chapter " data-level="1.2.2" data-path="../机器学习基础/特征工程.html">
             
-                <a href="特征工程.html">
+                <a href="../机器学习基础/特征工程.html">
             
                     
                     特征工程
@@ -167,9 +169,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../数据处理/预处理1-时序采样.html">
+        <li class="chapter " data-level="1.3.1" data-path="预处理1-时序采样.html">
             
-                <a href="../数据处理/预处理1-时序采样.html">
+                <a href="预处理1-时序采样.html">
             
                     
                     预处理1-时序采样
@@ -180,9 +182,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../数据处理/预处理2-缺失值填充.html">
+        <li class="chapter " data-level="1.3.2" data-path="预处理2-缺失值填充.html">
             
-                <a href="../数据处理/预处理2-缺失值填充.html">
+                <a href="预处理2-缺失值填充.html">
             
                     
                     预处理2-缺失值填充
@@ -193,9 +195,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../数据处理/预处理3-异常值处理.html">
+        <li class="chapter active" data-level="1.3.3" data-path="预处理3-异常值处理.html">
             
-                <a href="../数据处理/预处理3-异常值处理.html">
+                <a href="预处理3-异常值处理.html">
             
                     
                     预处理3-异常值处理
@@ -206,9 +208,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../数据处理/预处理4-标准化.html">
+        <li class="chapter " data-level="1.3.4" data-path="预处理4-标准化.html">
             
-                <a href="../数据处理/预处理4-标准化.html">
+                <a href="预处理4-标准化.html">
             
                     
                     预处理4-标准化
@@ -219,9 +221,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../数据处理/特征提取1-加载特征库.html">
+        <li class="chapter " data-level="1.3.5" data-path="特征提取1-加载特征库.html">
             
-                <a href="../数据处理/特征提取1-加载特征库.html">
+                <a href="特征提取1-加载特征库.html">
             
                     
                     特征提取1-加载特征库
@@ -232,9 +234,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../数据处理/特征转换1-pca.html">
+        <li class="chapter " data-level="1.3.6" data-path="特征转换1-pca.html">
             
-                <a href="../数据处理/特征转换1-pca.html">
+                <a href="特征转换1-pca.html">
             
                     
                     特征转换1-pca
@@ -245,9 +247,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="../数据处理/特征转换2-日期编码.html">
+        <li class="chapter " data-level="1.3.7" data-path="特征转换2-日期编码.html">
             
-                <a href="../数据处理/特征转换2-日期编码.html">
+                <a href="特征转换2-日期编码.html">
             
                     
                     特征转换2-日期编码
@@ -461,7 +463,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >特征工程</a>
+        <a href=".." >预处理3-异常值处理</a>
     </h1>
 </div>
 
@@ -476,17 +478,135 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7279;&#x5F81;&#x5DE5;&#x7A0B;">&#x7279;&#x5F81;&#x5DE5;&#x7A0B;</h1>
-<p>&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x662F;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x667A;&#x80FD;&#x7CFB;&#x7EDF;&#x7684;&#x91CD;&#x8981;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x6700;&#x5927;&#x9650;&#x5EA6;&#x5730;&#x4ECE;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E2D;&#x63D0;&#x53D6;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x4F9B;&#x7B97;&#x6CD5;&#x548C;&#x6A21;&#x578B;&#x4F7F;&#x7528;&#x3002;&#x5BF9;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
-<p>&#x7279;&#x5F81;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;&#xFF1A;&#x539F;&#x59CB;&#x7279;&#x5F81;&#x548C;&#x884D;&#x751F;&#x7279;&#x5F81;&#xFF0C;&#x539F;&#x59CB;&#x7279;&#x5F81;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x83B7;&#x5F97;&#xFF0C;&#x884D;&#x751F;&#x7279;&#x5F81;&#x901A;&#x5E38;&#x901A;&#x8FC7;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#xFF0C;&#x5BF9;&#x539F;&#x59CB;&#x6570;&#x636E;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&#x6216;&#x8F6C;&#x6362;&#x83B7;&#x5F97;&#x3002;</p>
-<p>&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x5177;&#x4F53;&#x7684;&#x65B9;&#x6CD5;&#x5305;&#x62EC;&#xFF1A;</p>
+                                <h1 id="&#x7B97;&#x6CD5;&#x8BF4;&#x660E;">&#x7B97;&#x6CD5;&#x8BF4;&#x660E;</h1>
+<p>&#x5F02;&#x5E38;&#x503C;&#x586B;&#x5145;&#x8282;&#x70B9;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x586B;&#x5145;&#x6570;&#x636E;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x6781;&#x7AEF;&#x5F02;&#x5E38;&#x503C;&#x3002;</p>
+<h1 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h1>
 <ul>
-<li>&#x7279;&#x5F81;&#x63D0;&#x53D6;</li>
-<li>&#x7279;&#x5F81;&#x8F6C;&#x6362;</li>
-<li>&#x7279;&#x5F81;&#x9009;&#x62E9;</li>
+<li>&#x8282;&#x70B9;&#x53C2;&#x6570;&#xFF1A;</li>
 </ul>
-<p>&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x57FA;&#x672C;&#x65B9;&#x6CD5;&#x867D;&#x7136;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4EFB;&#x52A1;&#x548C;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x4E0A;&#xFF0C;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x65B9;&#x6CD5;&#x5374;&#x6CA1;&#x6709;&#x7EDF;&#x4E00;&#x7684;&#x4E00;&#x5957;&#x6807;&#x51C6;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x800C;&#x662F;&#x9700;&#x8981;&#x6D4B;&#x8BD5;&#x591A;&#x79CD;&#x7EC4;&#x5408;&#x65B9;&#x5F0F;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x6700;&#x4F18;&#x7684;&#x914D;&#x7F6E;&#x3002;</p>
-<p>&#x5728;&#x8FD0;&#x7EF4;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x662F;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x6570;&#x636E;&#x6316;&#x6398;&#x4EFB;&#x52A1;&#x5982;&#x65F6;&#x5E8F;&#x9884;&#x6D4B;&#x548C;&#x65F6;&#x5E8F;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x7B49;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x56DE;&#x5F52;&#x548C;&#x5206;&#x7C7B;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5E94;&#x7528;&#xFF0C;&#x800C;&#x662F;&#x9700;&#x8981;&#x5148;&#x5BF9;&#x65F6;&#x5E8F;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5927;&#x91CF;&#x7684;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;&#x82F1;&#x6587;&#x540D;</th>
+<th>&#x53C2;&#x6570;&#x4E2D;&#x6587;&#x540D;</th>
+<th>&#x53C2;&#x6570;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>outlier_type</td>
+<td>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;</td>
+<td>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x6709;&#x4EE5;&#x4E0B;&#x7C7B;&#x578B;: constant/N-sigma/boxplot</td>
+</tr>
+<tr>
+<td>outlier_params</td>
+<td>&#x5B9A;&#x4E49;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x53C2;&#x6570;</td>
+<td>&#x8DDF;&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x76F8;&#x5173;&#x7684;&#x53C2;&#x6570;&#xFF0C; &#x683C;&#x5F0F;&#x4E3A;json</td>
+</tr>
+<tr>
+<td>fill_method</td>
+<td>&#x586B;&#x5145;&#x65B9;&#x6CD5;</td>
+<td>&#x586B;&#x5145;&#x65B9;&#x6CD5;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x53EF;&#x9009;&#x503C;:&quot;spline&quot;, &quot;linear&quot;</td>
+</tr>
+<tr>
+<td>fill_params</td>
+<td>&#x586B;&#x5145;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;</td>
+<td>&#x586B;&#x5145;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x683C;&#x5F0F;&#x4E3A;json</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>outlier_type: &#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x53D6;&#x503C;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;</th>
+<th>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x4E2D;&#x6587;&#x540D;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constant</td>
+<td>&#x5E38;&#x6570;</td>
+<td>&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x503C;&#x4E3A;&#x7F3A;&#x5931;&#x503C;</td>
+</tr>
+<tr>
+<td>N-sigma</td>
+<td>N&#x500D;&#x6807;&#x51C6;&#x5DEE;</td>
+<td>&#x5728;N-sigma&#x539F;&#x5219;&#x4E0B;&#xFF0C;&#x5F02;&#x5E38;&#x503C;&#x5982;&#x8D85;&#x8FC7;N&#x500D;&#x6807;&#x51C6;&#x5DEE;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x3002;&#x8FD9;&#x91CC;&#x9ED8;&#x8BA4;&#x53D6;N&#x4E3A;5</td>
+</tr>
+<tr>
+<td>boxplot</td>
+<td>&#x7BB1;&#x7EBF;&#x56FE;</td>
+<td>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5229;&#x7528;&#x7BB1;&#x578B;&#x56FE;&#x7684;&#x56DB;&#x5206;&#x4F4D;&#x8DDD;&#xFF08;IQR&#xFF09;&#x5BF9;&#x5F02;&#x5E38;&#x503C;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#xFF0C;&#x4E5F;&#x53EB;Tukey&#x2018;s test&#x3002;&#x56DB;&#x5206;&#x4F4D;&#x8DDD;(IQR)&#x5C31;&#x662F;&#x4E0A;&#x56DB;&#x5206;&#x4F4D;&#x4E0E;&#x4E0B;&#x56DB;&#x5206;&#x4F4D;&#x7684;&#x5DEE;&#x503C;&#x3002;&#x800C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;IQR&#x7684;1.5&#x500D;&#x4E3A;&#x6807;&#x51C6;&#xFF0C;&#x89C4;&#x5B9A;&#xFF1A;&#x8D85;&#x8FC7;&#xFF08;&#x4E0A;&#x56DB;&#x5206;&#x4F4D;+1.5&#x500D;IQR&#x8DDD;&#x79BB;&#xFF0C;&#x6216;&#x8005;&#x4E0B;&#x56DB;&#x5206;&#x4F4D;-1.5&#x500D;IQR&#x8DDD;&#x79BB;&#xFF09;&#x7684;&#x70B9;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x3002;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>outlier_params: &#x5B9A;&#x4E49;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x53C2;&#x6570;&#x3002;<ul>
+<li>outlier_type&#x53D6;&#x503C;&#x4E3A;&quot;constant&quot;&#x65F6;&#xFF0C;outlier_params&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x4E3A;{&quot;value&quot;: -1}, -1&#x8868;&#x793A;&#x5BF9;&#x5F02;&#x5E38;&#x7684;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#x3002;</li>
+<li>outlier_type&#x53D6;&#x503C;&#x4E3A;&quot;N-sigma&quot;&#x65F6;&#xFF0C;outlier_params&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x4E3A;{&quot;N&quot;: 5}, 5&#x5373;&#x4E3A;&#x6807;&#x51C6;&#x5DEE;&#x7684;&#x500D;&#x6570;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>fill_method: &#x586B;&#x5145;&#x65B9;&#x6CD5;&#x6709;&#x4E0B;&#x51E0;&#x79CD;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#x586B;&#x5145;&#x65B9;&#x6CD5;</th>
+<th>&#x586B;&#x5145;&#x65B9;&#x6CD5;&#x4E2D;&#x6587;&#x540D;</th>
+<th>&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constant</td>
+<td>&#x5E38;&#x6570;</td>
+<td>&#x7528;&#x6237;&#x53EF;&#x6307;&#x5B9A;&#x586B;&#x5145;&#x7684;&#x6570;&#x503C;&#x4E3A;1&#x4E2A;&#x5E38;&#x6570;</td>
+</tr>
+<tr>
+<td>previous</td>
+<td>&#x4E0A;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+<td>&#x4E0A;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+</tr>
+<tr>
+<td>next</td>
+<td>&#x4E0B;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+<td>&#x4E0B;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+</tr>
+<tr>
+<td>nearest</td>
+<td>&#x8DDD;&#x79BB;&#x6700;&#x8FD1;&#x7684;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+<td>&#x8DDD;&#x79BB;&#x6700;&#x8FD1;&#x7684;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+</tr>
+<tr>
+<td>linear</td>
+<td>&#x76F8;&#x90BB;&#x975E;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x7EBF;&#x6027;&#x63D2;&#x503C;</td>
+<td>&#x76F8;&#x90BB;&#x975E;&#x7F3A;&#x5931;&#x503C;&#x7684;&#x7EBF;&#x6027;&#x63D2;&#x503C;</td>
+</tr>
+<tr>
+<td>spline</td>
+<td>&#x6837;&#x6761;&#x63D2;&#x503C;</td>
+<td>&#x6837;&#x6761;&#x63D2;&#x503C;</td>
+</tr>
+<tr>
+<td>pchip</td>
+<td>&#x5206;&#x6BB5;&#x4E09;&#x6B21;Hermite &#x63D2;&#x503C;&#x591A;&#x9879;&#x5F0F;</td>
+</tr>
+<tr>
+<td>movmean</td>
+<td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A;window &#x7684;&#x79FB;&#x52A8;&#x5747;&#x503C;</td>
+</tr>
+<tr>
+<td>movmedian</td>
+<td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A;window&#x7684;&#x79FB;&#x52A8;&#x4E2D;&#x4F4D;&#x6570;</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -514,10 +634,14 @@
 
             
                 
-                <a href="机器学习的一些术语.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 机器学习的一些术语">
+                <a href="预处理2-缺失值填充.html" class="navigation navigation-prev " aria-label="Previous page: 预处理2-缺失值填充">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="预处理4-标准化.html" class="navigation navigation-next " aria-label="Next page: 预处理4-标准化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -526,7 +650,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"特征工程","level":"1.2.2","depth":2,"next":{"title":"数据处理","level":"1.3","depth":1,"ref":"","articles":[{"title":"预处理1-时序采样","level":"1.3.1","depth":2,"path":"数据处理/预处理1-时序采样.md","ref":"数据处理/预处理1-时序采样.md","articles":[]},{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"path":"数据处理/预处理3-异常值处理.md","ref":"数据处理/预处理3-异常值处理.md","articles":[]},{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},{"title":"特征提取1-加载特征库","level":"1.3.5","depth":2,"path":"数据处理/特征提取1-加载特征库.md","ref":"数据处理/特征提取1-加载特征库.md","articles":[]},{"title":"特征转换1-pca","level":"1.3.6","depth":2,"path":"数据处理/特征转换1-pca.md","ref":"数据处理/特征转换1-pca.md","articles":[]},{"title":"特征转换2-日期编码","level":"1.3.7","depth":2,"path":"数据处理/特征转换2-日期编码.md","ref":"数据处理/特征转换2-日期编码.md","articles":[]}]},"previous":{"title":"机器学习的一些术语","level":"1.2.1","depth":2,"path":"机器学习基础/机器学习的一些术语.md","ref":"机器学习基础/机器学习的一些术语.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"机器学习基础/特征工程.md","mtime":"2018-12-14T09:12:29.587Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"next":{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},"previous":{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/预处理3-异常值处理.md","mtime":"2018-12-18T14:01:29.155Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
