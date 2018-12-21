@@ -496,7 +496,7 @@
 <tr>
 <td>outlier_type</td>
 <td>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;</td>
-<td>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x6709;&#x4EE5;&#x4E0B;&#x7C7B;&#x578B;: constant/N-sigma/boxplot</td>
+<td>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x6709;&#x4EE5;&#x4E0B;&#x7C7B;&#x578B;: constant/N-sigma/boxplot, &#x9ED8;&#x8BA4;&#x503C;&#x4E3A;N-sigma</td>
 </tr>
 <tr>
 <td>outlier_params</td>
@@ -515,36 +515,11 @@
 </tr>
 </tbody>
 </table>
+<p>&#x5173;&#x4E8E;&#x8282;&#x70B9;&#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#xFF1A;</p>
 <ul>
-<li>outlier_type: &#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x53D6;&#x503C;</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;</th>
-<th>&#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x4E2D;&#x6587;&#x540D;</th>
-<th>&#x8BF4;&#x660E;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constant</td>
-<td>&#x5E38;&#x6570;</td>
-<td>&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x503C;&#x4E3A;&#x7F3A;&#x5931;&#x503C;</td>
-</tr>
-<tr>
-<td>N-sigma</td>
-<td>N&#x500D;&#x6807;&#x51C6;&#x5DEE;</td>
-<td>&#x5728;N-sigma&#x539F;&#x5219;&#x4E0B;&#xFF0C;&#x5F02;&#x5E38;&#x503C;&#x5982;&#x8D85;&#x8FC7;N&#x500D;&#x6807;&#x51C6;&#x5DEE;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x3002;&#x8FD9;&#x91CC;&#x9ED8;&#x8BA4;&#x53D6;N&#x4E3A;5</td>
-</tr>
-<tr>
-<td>boxplot</td>
-<td>&#x7BB1;&#x7EBF;&#x56FE;</td>
-<td>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5229;&#x7528;&#x7BB1;&#x578B;&#x56FE;&#x7684;&#x56DB;&#x5206;&#x4F4D;&#x8DDD;&#xFF08;IQR&#xFF09;&#x5BF9;&#x5F02;&#x5E38;&#x503C;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#xFF0C;&#x4E5F;&#x53EB;Tukey&#x2018;s test&#x3002;&#x56DB;&#x5206;&#x4F4D;&#x8DDD;(IQR)&#x5C31;&#x662F;&#x4E0A;&#x56DB;&#x5206;&#x4F4D;&#x4E0E;&#x4E0B;&#x56DB;&#x5206;&#x4F4D;&#x7684;&#x5DEE;&#x503C;&#x3002;&#x800C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;IQR&#x7684;1.5&#x500D;&#x4E3A;&#x6807;&#x51C6;&#xFF0C;&#x89C4;&#x5B9A;&#xFF1A;&#x8D85;&#x8FC7;&#xFF08;&#x4E0A;&#x56DB;&#x5206;&#x4F4D;+1.5&#x500D;IQR&#x8DDD;&#x79BB;&#xFF0C;&#x6216;&#x8005;&#x4E0B;&#x56DB;&#x5206;&#x4F4D;-1.5&#x500D;IQR&#x8DDD;&#x79BB;&#xFF09;&#x7684;&#x70B9;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x3002;</td>
-</tr>
-</tbody>
-</table>
-<ul>
+<li>outlier_type: &#x5F02;&#x5E38;&#x503C;&#x7C7B;&#x578B;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x53D6;&#x503C;
+constant:&#x5E38;&#x6570;,&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x503C;&#x4E3A;&#x7F3A;&#x5931;&#x503C;
+N-sigma:N&#x500D;&#x6807;&#x51C6;&#x5DEE;,&#x5728;N-sigma&#x539F;&#x5219;&#x4E0B;&#xFF0C;&#x5F02;&#x5E38;&#x503C;&#x5982;&#x8D85;&#x8FC7;N&#x500D;&#x6807;&#x51C6;&#x5DEE;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x89C6;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x3002;&#x8FD9;&#x91CC;&#x9ED8;&#x8BA4;&#x53D6;N&#x4E3A;5<br>boxplot:&#x7BB1;&#x7EBF;&#x56FE;,&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x5229;&#x7528;&#x7BB1;&#x578B;&#x56FE;&#x7684;&#x56DB;&#x5206;&#x4F4D;&#x8DDD;&#xFF08;IQR&#xFF09;&#x5BF9;&#x5F02;&#x5E38;&#x503C;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#xFF0C;&#x4E5F;&#x53EB;Tukey&#x2018;s test&#x3002;&#x56DB;&#x5206;&#x4F4D;&#x8DDD;(IQR)&#x5C31;&#x662F;&#x4E0A;&#x56DB;&#x5206;&#x4F4D;&#x4E0E;&#x4E0B;&#x56DB;&#x5206;&#x4F4D;&#x7684;&#x5DEE;&#x503C;&#x3002;&#x800C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;IQR&#x7684;1.5&#x500D;&#x4E3A;&#x6807;&#x51C6;&#xFF0C;&#x89C4;&#x5B9A;&#xFF1A;&#x8D85;&#x8FC7;&#xFF08;&#x4E0A;&#x56DB;&#x5206;&#x4F4D;+1.5&#x500D;IQR&#x8DDD;&#x79BB;&#xFF0C;&#x6216;&#x8005;&#x4E0B;&#x56DB;&#x5206;&#x4F4D;-1.5&#x500D;IQR&#x8DDD;&#x79BB;&#xFF09;&#x7684;&#x70B9;&#x4E3A;&#x5F02;&#x5E38;&#x503C;&#x3002;  </li>
 <li>outlier_params: &#x5B9A;&#x4E49;&#x5F02;&#x5E38;&#x503C;&#x7684;&#x53C2;&#x6570;&#x3002;<ul>
 <li>outlier_type&#x53D6;&#x503C;&#x4E3A;&quot;constant&quot;&#x65F6;&#xFF0C;outlier_params&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x4E3A;{&quot;value&quot;: -1}, -1&#x8868;&#x793A;&#x5BF9;&#x5F02;&#x5E38;&#x7684;&#x5730;&#x65B9;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#x3002;</li>
 <li>outlier_type&#x53D6;&#x503C;&#x4E3A;&quot;N-sigma&quot;&#x65F6;&#xFF0C;outlier_params&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x4E3A;{&quot;N&quot;: 5}, 5&#x5373;&#x4E3A;&#x6807;&#x51C6;&#x5DEE;&#x7684;&#x500D;&#x6570;&#x3002;</li>
@@ -570,17 +545,17 @@
 </tr>
 <tr>
 <td>previous</td>
-<td>&#x4E0A;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+<td>&#x4E0A;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x7684;&#x503C;</td>
 <td>&#x4E0A;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
 </tr>
 <tr>
 <td>next</td>
-<td>&#x4E0B;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+<td>&#x4E0B;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x7684;&#x503C;</td>
 <td>&#x4E0B;&#x4E00;&#x4E2A;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
 </tr>
 <tr>
 <td>nearest</td>
-<td>&#x8DDD;&#x79BB;&#x6700;&#x8FD1;&#x7684;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
+<td>&#x6700;&#x8FD1;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x7684;&#x503C;</td>
 <td>&#x8DDD;&#x79BB;&#x6700;&#x8FD1;&#x7684;&#x975E;&#x7F3A;&#x5931;&#x503C;</td>
 </tr>
 <tr>
@@ -596,14 +571,98 @@
 <tr>
 <td>pchip</td>
 <td>&#x5206;&#x6BB5;&#x4E09;&#x6B21;Hermite &#x63D2;&#x503C;&#x591A;&#x9879;&#x5F0F;</td>
+<td>&#x5206;&#x6BB5;&#x4E09;&#x6B21;Hermite &#x63D2;&#x503C;&#x591A;&#x9879;&#x5F0F;</td>
 </tr>
 <tr>
 <td>movmean</td>
+<td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A;window &#x7684;&#x79FB;&#x52A8;&#x5747;&#x503C;</td>
 <td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A;window &#x7684;&#x79FB;&#x52A8;&#x5747;&#x503C;</td>
 </tr>
 <tr>
 <td>movmedian</td>
 <td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A;window&#x7684;&#x79FB;&#x52A8;&#x4E2D;&#x4F4D;&#x6570;</td>
+<td>&#x7A97;&#x53E3;&#x957F;&#x5EA6;&#x4E3A;window&#x7684;&#x79FB;&#x52A8;&#x4E2D;&#x4F4D;&#x6570;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6982;&#x89C8;">&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6982;&#x89C8;</h1>
+<p>&#x8F93;&#x5165;&#x6570;&#x636E;&#x9884;&#x89C8;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>timestamp</th>
+<th>value</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017/8/6 0:00:00</td>
+<td>65013</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01:00</td>
+<td>-5</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:02:00</td>
+<td>64058</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:03:00</td>
+<td>63587</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:04:00</td>
+<td>63085</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4F7F;&#x7528;&#x5F02;&#x5E38;&#x503C;&#x5904;&#x7406;&#x8282;&#x70B9;&#x7684;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x5904;&#x7406;&#x4E86;value&#x5217;&#x4E4B;&#x540E;&#xFF0C;&#x8F93;&#x51FA;&#x4E3A;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>timestamp</th>
+<th>value</th>
+<th>label</th>
+<th>outputCol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017/8/6 0:00</td>
+<td>65013</td>
+<td>0</td>
+<td>65013</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01</td>
+<td>-5</td>
+<td>0</td>
+<td>65013</td>
+</tr>
+<tr>
+<td>2017/8/6 0:02</td>
+<td>64058</td>
+<td>0</td>
+<td>64058</td>
+</tr>
+<tr>
+<td>2017/8/6 0:03</td>
+<td>63587</td>
+<td>0</td>
+<td>63587</td>
+</tr>
+<tr>
+<td>2017/8/6 0:04</td>
+<td>63085</td>
+<td>0</td>
+<td>63085</td>
 </tr>
 </tbody>
 </table>
@@ -650,7 +709,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"next":{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},"previous":{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/预处理3-异常值处理.md","mtime":"2018-12-18T14:01:29.155Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"next":{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},"previous":{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/预处理3-异常值处理.md","mtime":"2018-12-20T09:03:12.020Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -476,13 +476,93 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7B97;&#x6CD5;&#x8BF4;&#x660E;">&#x7B97;&#x6CD5;&#x8BF4;&#x660E;</h1>
+                                <h2 id="&#x7B97;&#x6CD5;&#x8BF4;&#x660E;">&#x7B97;&#x6CD5;&#x8BF4;&#x660E;</h2>
 <p>&#x8BE5;&#x8282;&#x70B9;&#x5BF9;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x6309;&#x7167;&#x56FA;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x9891;&#x7387;&#x8FDB;&#x884C;&#x805A;&#x5408;&#x64CD;&#x4F5C;&#x3002;</p>
 <h2 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h2>
 <ul>
 <li>aggregation&#xFF1A;&#x805A;&#x5408;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x9009;&#x503C;&#x4E3A;&quot;sum&quot;, &quot;max&quot;, &quot;min&quot;, &quot;last&quot;, &quot;first&quot;&#x3002;</li>
 <li>frequence&#xFF1A;int&#x7C7B;&#x578B;&#xFF0C;&#x91C7;&#x6837;&#x9891;&#x7387;,&#x5355;&#x4F4D;&#x4E3A;&#x79D2;&#x3002;&#x4F8B;&#x5982;60&#x8868;&#x793A;&#x6BCF;60&#x79D2;/1&#x5206;&#x949F;&#x5185;&#x7684;&#x6570;&#x636E;&#x505A;1&#x6B21;&#x805A;&#x5408;&#x4E4B;&#x540E;&#x7684;&#x6570;&#x636E;&#x3002;</li>
 </ul>
+<h2 id="&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6982;&#x89C8;">&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6982;&#x89C8;</h2>
+<p>&#x8F93;&#x5165;&#x6570;&#x636E;&#x9884;&#x89C8;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>timestamp</th>
+<th>value</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017/8/6 0:00:00</td>
+<td>65013</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01:00</td>
+<td>64492</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01:00</td>
+<td>64492</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01:45</td>
+<td>64058</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:03:00</td>
+<td>63587</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:04:00</td>
+<td>63085</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5982;&#x679C;&#x9009;&#x62E9;&#x4E86;&#x805A;&#x5408;&#x51FD;&#x6570;&#x4E3A;&#x201C;max&#x201D;&#xFF0C; frequence&#x4E3A;60&#xFF0C;&#x5219;&#x7ECF;&#x8FC7;&#x65F6;&#x5E8F;&#x91C7;&#x6837;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x4E3A;:</p>
+<table>
+<thead>
+<tr>
+<th>timestamp</th>
+<th>value</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017/8/6 0:00:00</td>
+<td>65013</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01:00</td>
+<td>64492</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:02:00</td>
+<td>64058</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:03:00</td>
+<td>63587</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:04:00</td>
+<td>63085</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -522,7 +602,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"预处理1-时序采样","level":"1.3.1","depth":2,"next":{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},"previous":{"title":"数据处理","level":"1.3","depth":1,"ref":"","articles":[{"title":"预处理1-时序采样","level":"1.3.1","depth":2,"path":"数据处理/预处理1-时序采样.md","ref":"数据处理/预处理1-时序采样.md","articles":[]},{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"path":"数据处理/预处理3-异常值处理.md","ref":"数据处理/预处理3-异常值处理.md","articles":[]},{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},{"title":"特征提取1-加载特征库","level":"1.3.5","depth":2,"path":"数据处理/特征提取1-加载特征库.md","ref":"数据处理/特征提取1-加载特征库.md","articles":[]},{"title":"特征转换1-pca","level":"1.3.6","depth":2,"path":"数据处理/特征转换1-pca.md","ref":"数据处理/特征转换1-pca.md","articles":[]},{"title":"特征转换2-日期编码","level":"1.3.7","depth":2,"path":"数据处理/特征转换2-日期编码.md","ref":"数据处理/特征转换2-日期编码.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/预处理1-时序采样.md","mtime":"2018-12-18T07:38:02.384Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"预处理1-时序采样","level":"1.3.1","depth":2,"next":{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},"previous":{"title":"数据处理","level":"1.3","depth":1,"ref":"","articles":[{"title":"预处理1-时序采样","level":"1.3.1","depth":2,"path":"数据处理/预处理1-时序采样.md","ref":"数据处理/预处理1-时序采样.md","articles":[]},{"title":"预处理2-缺失值填充","level":"1.3.2","depth":2,"path":"数据处理/预处理2-缺失值填充.md","ref":"数据处理/预处理2-缺失值填充.md","articles":[]},{"title":"预处理3-异常值处理","level":"1.3.3","depth":2,"path":"数据处理/预处理3-异常值处理.md","ref":"数据处理/预处理3-异常值处理.md","articles":[]},{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},{"title":"特征提取1-加载特征库","level":"1.3.5","depth":2,"path":"数据处理/特征提取1-加载特征库.md","ref":"数据处理/特征提取1-加载特征库.md","articles":[]},{"title":"特征转换1-pca","level":"1.3.6","depth":2,"path":"数据处理/特征转换1-pca.md","ref":"数据处理/特征转换1-pca.md","articles":[]},{"title":"特征转换2-日期编码","level":"1.3.7","depth":2,"path":"数据处理/特征转换2-日期编码.md","ref":"数据处理/特征转换2-日期编码.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/预处理1-时序采样.md","mtime":"2018-12-20T09:16:21.423Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
