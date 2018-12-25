@@ -18,13 +18,13 @@
 
 设置数据集切分比例的地方，显示切分之后，前面一截时序是训练集，后面一截时序是验证集。
 
-![image-20181029211253807](/Users/stellazhao/statistics_studyplace/EasyML/doc/algorithm/_image/split切分数据集.png)
+![image-20181029211253807](/Users/stellazhao/Desktop/split.png)
 
 
 ## 1.2 字段设置
 在流程化建模的第一步-全局设置处，字段设置这里，为了方便用户理解, 加上示例数据的截图，如下图示：
 
-![image-20181017162507129](/Users/stellazhao/statistics_studyplace/EasyML/doc/algorithm/_image/任务设置的图示.png)
+![image-20181017162507129](./_image/任务设置的图示.png)
 
 # 2. 数据处理-预处理和特征工程
 
@@ -73,7 +73,7 @@
 
 如：滑动平均
 
-![Pasted Graphic.tiff](/Users/stellazhao/statistics_studyplace/EasyML/doc/algorithm/_image/滑动平均.png)
+![Pasted Graphic.tiff](./_image/滑动平均.png)
 
 [算法原理可视化]
 
@@ -129,7 +129,7 @@
 黑色的点表示算法检测出来的异常点，可以看到，当橙色的曲线上的点即异常分值超过了某个阈值之后，
 
 该时刻的点就被判断为异常。
-![image-20181120134644929](/Users/stellazhao/statistics_studyplace/EasyML/doc/algorithm/_image/场景化-可视化.png)
+![image-20181120134644929](./_image/场景化-可视化.png)
 
 
 

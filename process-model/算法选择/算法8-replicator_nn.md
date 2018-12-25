@@ -1,7 +1,0 @@
-[TOC]
-
-# 自编码器
-
-# 参考文献
-http://neuro.bstu.by/ai/To-dom/My_research/Papers-0/For-research/D-mining/Anomaly-D/KDD-cup-99/NN/dawak02.pdf
-

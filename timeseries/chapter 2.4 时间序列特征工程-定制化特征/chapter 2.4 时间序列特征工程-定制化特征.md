@@ -52,15 +52,18 @@ $f_t= {vol}_t / vol_{t-1} $
 
 设计长期窗口均值${\bar y}_{t, w_1}$和短期窗口均值${\bar y}_{t, w_2} $的差分(diff):
 
-${\bar y}_{t, w_1} = {\frac{1}{w_1} \sum\limits_{i = 1}^{w_1} y_{t-i+1} }$
+$${\bar y}_{t, w_1} = {\frac{1}{w_1} \sum\limits_{i = 1}^{w_1} y_{t-i+1} }$$
 
-${\bar y}_{t, w_2} = {\frac{1}{w_2} \sum\limits_{i = 1}^{w_2} y_{t-i+1} }$
+$${\bar y}_{t, w_2} = {\frac{1}{w_2} \sum\limits_{i = 1}^{w_2} y_{t-i+1} }$$
 
-$f_t= {\bar y}_{t, w_1}-{\bar y}_{t, w_2} $
+$$f_t= {\bar y}_{t, w_1}-{\bar y}_{t, w_2} $$
 其中$w_1$和$w_2$是窗口长度。
 
 ### 异常特征总结
-$\left| x_i - mad(X_{curren\_window})) \right|$
+
+$$\left| x_i - mad(X_{curren\_window})) \right|$$
+
+
 特征名|特征中文名|特征描述|计算公式|
 ----------------------|------------------|-------------|---------|
 mad_detector | 基于绝对离差中位数的异常得分|检测最后一个点偏离整个窗口的程度, 类似z_score|$\left| x_i - mad(X_{curren\_window})) \right|$|
