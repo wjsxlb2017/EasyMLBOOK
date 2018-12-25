@@ -1,0 +1,900 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>特征提取1-加载特征库 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="特征转换1-pca.html" />
+    
+    
+    <link rel="prev" href="预处理4-标准化.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    机器学习基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../机器学习基础/机器学习的一些术语.html">
+            
+                <a href="../机器学习基础/机器学习的一些术语.html">
+            
+                    
+                    机器学习的一些术语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../机器学习基础/特征工程.html">
+            
+                <a href="../机器学习基础/特征工程.html">
+            
+                    
+                    特征工程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    数据处理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="预处理1-时序采样.html">
+            
+                <a href="预处理1-时序采样.html">
+            
+                    
+                    预处理1-时序采样
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="预处理2-缺失值填充.html">
+            
+                <a href="预处理2-缺失值填充.html">
+            
+                    
+                    预处理2-缺失值填充
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="预处理3-异常值处理.html">
+            
+                <a href="预处理3-异常值处理.html">
+            
+                    
+                    预处理3-异常值处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="预处理4-标准化.html">
+            
+                <a href="预处理4-标准化.html">
+            
+                    
+                    预处理4-标准化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.5" data-path="特征提取1-加载特征库.html">
+            
+                <a href="特征提取1-加载特征库.html">
+            
+                    
+                    特征提取1-加载特征库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="特征转换1-pca.html">
+            
+                <a href="特征转换1-pca.html">
+            
+                    
+                    特征转换1-pca
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="特征转换2-日期编码.html">
+            
+                <a href="特征转换2-日期编码.html">
+            
+                    
+                    特征转换2-日期编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    算法选择
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../算法选择/算法1-高斯分布检测算法.html">
+            
+                <a href="../算法选择/算法1-高斯分布检测算法.html">
+            
+                    
+                    算法1-高斯分布检测算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../算法选择/算法2-滑动平均检测算法.html">
+            
+                <a href="../算法选择/算法2-滑动平均检测算法.html">
+            
+                    
+                    算法2-滑动平均检测算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../算法选择/算法3-指数滑动平均检测算法.html">
+            
+                <a href="../算法选择/算法3-指数滑动平均检测算法.html">
+            
+                    
+                    算法3-指数滑动平均检测算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../算法选择/算法4-dbscan.html">
+            
+                <a href="../算法选择/算法4-dbscan.html">
+            
+                    
+                    算法4-dbscan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../算法选择/算法5-孤立森林iforest.html">
+            
+                <a href="../算法选择/算法5-孤立森林iforest.html">
+            
+                    
+                    算法5-孤立森林iforest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../算法选择/算法6-局部异常因子lof.html">
+            
+                <a href="../算法选择/算法6-局部异常因子lof.html">
+            
+                    
+                    算法6-局部异常因子lof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../算法选择/算法7-单分类SVM.html">
+            
+                <a href="../算法选择/算法7-单分类SVM.html">
+            
+                    
+                    算法7-单分类SVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../算法选择/算法8-随机森林.html">
+            
+                <a href="../算法选择/算法8-随机森林.html">
+            
+                    
+                    算法8-随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../算法选择/算法9-gbdt.html">
+            
+                <a href="../算法选择/算法9-gbdt.html">
+            
+                    
+                    算法9-gbdt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../评估指标/评估指标.html">
+            
+                <a href="../评估指标/评估指标.html">
+            
+                    
+                    评估指标
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../评估指标/指定敏感度.html">
+            
+                <a href="../评估指标/指定敏感度.html">
+            
+                    
+                    指定敏感度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >特征提取1-加载特征库</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x8BF4;&#x660E;">&#x8BF4;&#x660E;</h1>
+<p>&#x65F6;&#x5E8F;&#x7279;&#x5F81;&#x5E93;&#x662F;&#x4E00;&#x79CD;&#x5BF9;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x9488;&#x5BF9;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x573A;&#x666F;,&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x5E38;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x9009;&#x62E9;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x64CD;&#x4F5C;&#x3002;</p>
+<h1 id="&#x53C2;&#x6570;">&#x53C2;&#x6570;</h1>
+<p>&#x7279;&#x5F81;&#x5E93;&#x5305;&#x62EC;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x51FD;&#x6570;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x7279;&#x5F81;&#x540D;</th>
+<th>&#x7279;&#x5F81;&#x4E2D;&#x6587;&#x540D;</th>
+<th>&#x7279;&#x5F81;&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diff2</td>
+<td>&#x4E8C;&#x9636;&#x5DEE;&#x5206;</td>
+<td>&#x4E8C;&#x9636;&#x5DEE;&#x5206;</td>
+</tr>
+<tr>
+<td>bk_ts_diff</td>
+<td>&#x4E00;&#x9636;&#x5DEE;&#x5206;</td>
+<td>&#x4E00;&#x9636;&#x5DEE;&#x5206;</td>
+</tr>
+<tr>
+<td>bk_ts_ewma</td>
+<td>&#x57FA;&#x4E8E;&#x6307;&#x6570;&#x52A0;&#x6743;&#x5E73;&#x5747;&#x7684;&#x5F02;&#x5E38;&#x5F97;&#x5206;</td>
+<td>&#x4F7F;&#x7528;ewma&#x4F5C;&#x4E3A;&#x9884;&#x6D4B;&#x503C;&#xFF0C;&#x5BF9;&#x6BD4;&#x9884;&#x6D4B;&#x503C;&#x548C;&#x771F;&#x5B9E;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x8BA1;&#x7B97;&#x5F02;&#x5E38;&#x5F97;&#x5206;</td>
+</tr>
+<tr>
+<td>bk_ts_ewmstd</td>
+<td>&#x57FA;&#x4E8E;&#x6307;&#x6570;&#x52A0;&#x6743;&#x5E73;&#x5747;&#x5F52;&#x4E00;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x5F02;&#x5E38;&#x5F97;&#x5206;</td>
+<td>&#x4F7F;&#x7528;ewma&#x4F5C;&#x4E3A;&#x9884;&#x6D4B;&#x503C;&#xFF0C;ewmstd&#x4F5C;&#x4E3A;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;&#xFF0C;&#x8BA1;&#x7B97;&#x5F02;&#x5E38;&#x5F97;&#x5206;&#xFF0C;&#x8BA1;&#x7B97;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x70B9;&#x7684;z_score&#xFF0C;&#x4F5C;&#x4E3A;&#x5F02;&#x5E38;&#x7A0B;&#x5EA6;</td>
+</tr>
+<tr>
+<td>bk_ts_slope_ratio</td>
+<td>&#x6700;&#x8FD1;&#x4E24;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x659C;&#x7387;&#x6BD4;</td>
+<td>&#x8BA1;&#x7B97;&#x6700;&#x8FD1;&#x4E24;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x659C;&#x7387;&#x7684;&#x6BD4;&#x503C;</td>
+</tr>
+<tr>
+<td>bk_ts_sum_ratio</td>
+<td>&#x6700;&#x8FD1;&#x4E24;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x79EF;&#x5206;&#x6BD4;</td>
+<td>&#x8BA1;&#x7B97;&#x6700;&#x8FD1;&#x4E24;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x79EF;&#x5206;&#x7684;&#x6BD4;&#x503C;</td>
+</tr>
+<tr>
+<td>bk_ts_crossingpoint</td>
+<td>&#x662F;&#x5426;&#x4E3A;&#x4EA4;&#x53C9;&#x70B9;</td>
+<td>&#x8BA1;&#x7B97;&#x662F;&#x5426;&#x662F;&#x5C40;&#x90E8;&#x62D0;&#x70B9;&#xFF0C;&#x6BD4;&#x8F83;&#x6700;&#x8FD1;&#x4E00;&#x6BB5;&#x66F2;&#x7EBF; &#x548C; &#x5012;&#x6570;&#x7B2C;&#x4E8C;&#x6BB5;&#x66F2;&#x7EBF;&#x7684;&#x65B9;&#x5411;&#x662F;&#x5426;&#x4E00;&#x81F4;</td>
+</tr>
+<tr>
+<td>bk_ts_changepoint</td>
+<td>&#x7A81;&#x53D8;&#x5F97;&#x5206;</td>
+<td>&#x8BA1;&#x7B97;&#x7A97;&#x53E3;&#x6700;&#x8FD1;&#x4E00;&#x4E2A;&#x70B9;&#x7684;&#x589E;&#x957F;&#x7387;/&#x659C;&#x7387;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x9884;&#x89C8;">&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x9884;&#x89C8;</h1>
+<p>&#x8F93;&#x5165;&#x6570;&#x636E;&#x9884;&#x89C8;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>timestamp</th>
+<th>value</th>
+<th>label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017/8/6 0:00</td>
+<td>65013</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:01</td>
+<td>64492</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:02</td>
+<td>64058</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:03</td>
+<td>63587</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2017/8/6 0:04</td>
+<td>63085</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7ECF;&#x8FC7;&#x52A0;&#x8F7D;&#x7279;&#x5F81;&#x5E93;&#x4E4B;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x9884;&#x89C8;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>timestamp</th>
+<th>value</th>
+<th>label</th>
+<th>bk_ts_diff</th>
+<th>bk_ts_ewma</th>
+<th>bk_ts_ewmstd</th>
+<th>bk_ts_slope_ratio</th>
+<th>bk_ts_sum_ratio</th>
+<th>bk_ts_crossingpoint</th>
+<th>bk_ts_changepoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2017-08-06 00:00:00</td>
+<td>65013</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:01:00</td>
+<td>64492</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:02:00</td>
+<td>64058</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:03:00</td>
+<td>63587</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:04:00</td>
+<td>63085</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:05:00</td>
+<td>62548</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:06:00</td>
+<td>62007</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:07:00</td>
+<td>61612</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:08:00</td>
+<td>61059</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td>-inf</td>
+<td>-inf</td>
+<td>0</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>2017-08-06 00:09:00</td>
+<td>60487</td>
+<td>0</td>
+<td>-572</td>
+<td>61021.55718475073</td>
+<td>878.3724478544066</td>
+<td>0.9906320116608526</td>
+<td>0.9920241214814762</td>
+<td>0</td>
+<td>-0.009367988339147383</td>
+</tr>
+<tr>
+<td>2017-08-06 00:10:00</td>
+<td>60035</td>
+<td>0</td>
+<td>-452</td>
+<td>60525.84555229716</td>
+<td>858.208430266632</td>
+<td>0.9925273199199828</td>
+<td>0.9920825672590974</td>
+<td>0</td>
+<td>-0.007472680080017194</td>
+</tr>
+<tr>
+<td>2017-08-06 00:11:00</td>
+<td>59468</td>
+<td>0</td>
+<td>-567</td>
+<td>59994.46725317693</td>
+<td>879.5900141173184</td>
+<td>0.9905555092862497</td>
+<td>0.9917812339966838</td>
+<td>0</td>
+<td>-0.009444490713750312</td>
+</tr>
+<tr>
+<td>2017-08-06 00:12:00</td>
+<td>58815</td>
+<td>0</td>
+<td>-653</td>
+<td>59402.17106549365</td>
+<td>945.189743526359</td>
+<td>0.989019304499899</td>
+<td>0.991384539834768</td>
+<td>0</td>
+<td>-0.010980695500100895</td>
+</tr>
+<tr>
+<td>2017-08-06 00:13:00</td>
+<td>58148</td>
+<td>0</td>
+<td>-667</td>
+<td>58772.427174975564</td>
+<td>1010.1530989187673</td>
+<td>0.9886593556065629</td>
+<td>0.9910091856729726</td>
+<td>0</td>
+<td>-0.011340644393437049</td>
+</tr>
+<tr>
+<td>2017-08-06 00:14:00</td>
+<td>57525</td>
+<td>0</td>
+<td>-623</td>
+<td>58145.99608993157</td>
+<td>1037.6397107151263</td>
+<td>0.9892859599642292</td>
+<td>0.990769581332613</td>
+<td>0</td>
+<td>-0.010714040035770792</td>
+</tr>
+<tr>
+<td>2017-08-06 00:15:00</td>
+<td>56956</td>
+<td>0</td>
+<td>-569</td>
+<td>57548.264907135876</td>
+<td>1025.5856366281516</td>
+<td>0.9901086484137331</td>
+<td>0.9906316539183464</td>
+<td>0</td>
+<td>-0.00989135158626684</td>
+</tr>
+<tr>
+<td>2017-08-06 00:16:00</td>
+<td>56338</td>
+<td>0</td>
+<td>-618</td>
+<td>56940.36168132942</td>
+<td>1028.186492839503</td>
+<td>0.989149518926891</td>
+<td>0.9901255371134889</td>
+<td>0</td>
+<td>-0.010850481073109066</td>
+</tr>
+<tr>
+<td>2017-08-06 00:17:00</td>
+<td>55702</td>
+<td>0</td>
+<td>-636</td>
+<td>56318.292277614855</td>
+<td>1041.129186878623</td>
+<td>0.9887109943554971</td>
+<td>0.9898701097325989</td>
+<td>0</td>
+<td>-0.011289005644502822</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="预处理4-标准化.html" class="navigation navigation-prev " aria-label="Previous page: 预处理4-标准化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="特征转换1-pca.html" class="navigation navigation-next " aria-label="Next page: 特征转换1-pca">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"特征提取1-加载特征库","level":"1.3.5","depth":2,"next":{"title":"特征转换1-pca","level":"1.3.6","depth":2,"path":"数据处理/特征转换1-pca.md","ref":"数据处理/特征转换1-pca.md","articles":[]},"previous":{"title":"预处理4-标准化","level":"1.3.4","depth":2,"path":"数据处理/预处理4-标准化.md","ref":"数据处理/预处理4-标准化.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"数据处理/特征提取1-加载特征库.md","mtime":"2018-12-21T12:00:55.135Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,597 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>算法6-局部异常因子lof · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="算法7-单分类SVM.html" />
+    
+    
+    <link rel="prev" href="算法5-孤立森林iforest.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    机器学习基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../机器学习基础/机器学习的一些术语.html">
+            
+                <a href="../机器学习基础/机器学习的一些术语.html">
+            
+                    
+                    机器学习的一些术语
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../机器学习基础/特征工程.html">
+            
+                <a href="../机器学习基础/特征工程.html">
+            
+                    
+                    特征工程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    数据处理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../数据处理/预处理1-时序采样.html">
+            
+                <a href="../数据处理/预处理1-时序采样.html">
+            
+                    
+                    预处理1-时序采样
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../数据处理/预处理2-缺失值填充.html">
+            
+                <a href="../数据处理/预处理2-缺失值填充.html">
+            
+                    
+                    预处理2-缺失值填充
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../数据处理/预处理3-异常值处理.html">
+            
+                <a href="../数据处理/预处理3-异常值处理.html">
+            
+                    
+                    预处理3-异常值处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../数据处理/预处理4-标准化.html">
+            
+                <a href="../数据处理/预处理4-标准化.html">
+            
+                    
+                    预处理4-标准化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../数据处理/特征提取1-加载特征库.html">
+            
+                <a href="../数据处理/特征提取1-加载特征库.html">
+            
+                    
+                    特征提取1-加载特征库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../数据处理/特征转换1-pca.html">
+            
+                <a href="../数据处理/特征转换1-pca.html">
+            
+                    
+                    特征转换1-pca
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../数据处理/特征转换2-日期编码.html">
+            
+                <a href="../数据处理/特征转换2-日期编码.html">
+            
+                    
+                    特征转换2-日期编码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    算法选择
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="算法1-高斯分布检测算法.html">
+            
+                <a href="算法1-高斯分布检测算法.html">
+            
+                    
+                    算法1-高斯分布检测算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="算法2-滑动平均检测算法.html">
+            
+                <a href="算法2-滑动平均检测算法.html">
+            
+                    
+                    算法2-滑动平均检测算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="算法3-指数滑动平均检测算法.html">
+            
+                <a href="算法3-指数滑动平均检测算法.html">
+            
+                    
+                    算法3-指数滑动平均检测算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="算法4-dbscan.html">
+            
+                <a href="算法4-dbscan.html">
+            
+                    
+                    算法4-dbscan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="算法5-孤立森林iforest.html">
+            
+                <a href="算法5-孤立森林iforest.html">
+            
+                    
+                    算法5-孤立森林iforest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.6" data-path="算法6-局部异常因子lof.html">
+            
+                <a href="算法6-局部异常因子lof.html">
+            
+                    
+                    算法6-局部异常因子lof
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="算法7-单分类SVM.html">
+            
+                <a href="算法7-单分类SVM.html">
+            
+                    
+                    算法7-单分类SVM
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="算法8-随机森林.html">
+            
+                <a href="算法8-随机森林.html">
+            
+                    
+                    算法8-随机森林
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="算法9-gbdt.html">
+            
+                <a href="算法9-gbdt.html">
+            
+                    
+                    算法9-gbdt
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../评估指标/评估指标.html">
+            
+                <a href="../评估指标/评估指标.html">
+            
+                    
+                    评估指标
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../评估指标/指定敏感度.html">
+            
+                <a href="../评估指标/指定敏感度.html">
+            
+                    
+                    指定敏感度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >算法6-局部异常因子lof</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7B97;&#x6CD5;&#x539F;&#x7406;-&#x4E00;&#x53E5;&#x8BDD;&#x4ECB;&#x7ECD;">&#x7B97;&#x6CD5;&#x539F;&#x7406;-&#x4E00;&#x53E5;&#x8BDD;&#x4ECB;&#x7ECD;</h1>
+<p>&#x5C40;&#x90E8;&#x5F02;&#x5E38;&#x56E0;&#x5B50;&#xFF08;LOF&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x5BC6;&#x5EA6;&#x7684;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x7B97;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;&#x6BD4;&#x8F83;&#x6837;&#x672C;&#x70B9;&#x7684;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#xFF08;local density&#xFF09;&#x548C;&#x5B83;&#x90BB;&#x5C45;&#x7684;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#x6765;&#x786E;&#x5B9A;&#x5F02;&#x5E38;&#x3002;</p>
+<h1 id="&#x7B97;&#x6CD5;&#x539F;&#x7406;-&#x6587;&#x6863;">&#x7B97;&#x6CD5;&#x539F;&#x7406;-&#x6587;&#x6863;</h1>
+<p>&#x5C40;&#x90E8;&#x5F02;&#x5E38;&#x56E0;&#x5B50;&#xFF08;LOF&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x5BC6;&#x5EA6;&#x7684;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x7B97;&#x6CD5;&#x3002;&#x539F;&#x7406;&#x662F;&#x6BD4;&#x8F83;&#x6837;&#x672C;&#x70B9;&#x7684;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#xFF08;local density&#xFF09;&#x548C;&#x5B83;&#x90BB;&#x8FD1;&#x70B9;&#x7684;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#x3002;&#x5982;&#x679C;&#x4E24;&#x8005;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x5B83;&#x662F;&#x6B63;&#x5E38;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6BD4;&#x90BB;&#x8FD1;&#x70B9;&#x7684;&#x5C40;&#x90E8;&#x8981;&#x660E;&#x663E;&#x7A00;&#x758F;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5F02;&#x5E38;&#x70B9;&#x3002;</p>
+<p>&#x8BE5;&#x7B97;&#x6CD5;&#x6700;&#x6838;&#x5FC3;&#x7684;&#x6982;&#x5FF5;&#x5C31;&#x662F;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#xFF0C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5C40;&#x90E8;&#x5BC6;&#x5EA6;&#x662F;&#x7531;&#x5B83;&#x5468;&#x56F4;&#x7684;K&#x4E2A;&#x6700;&#x8FD1;&#x7684;&#x90BB;&#x5C45;&#x786E;&#x5B9A;&#x7684;&#xFF0C;</p>
+<h1 id="&#x7B97;&#x6CD5;&#x539F;&#x7406;-&#x53C2;&#x6570;">&#x7B97;&#x6CD5;&#x539F;&#x7406;-&#x53C2;&#x6570;</h1>
+<ul>
+<li><p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>&#x2212;</mo><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mo>(</mo><mi>A</mi><mo>)</mo></mrow><annotation encoding="application/x-tex"> k-distance(A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">&#x2212;</span><span class="mord mathit">d</span><span class="mord mathit">i</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord mathit">c</span><span class="mord mathit">e</span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span></span></span></span>: &#x6837;&#x672C;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mstyle scriptlevel="0" displaystyle="true"><mi>A</mi></mstyle></mrow></mrow><annotation encoding="application/x-tex"> {\displaystyle A}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span></span></span></span></span>&#x5230;&#x5B83;&#x7B2C;K&#x90BB;&#x8FD1;&#x7684;&#x90BB;&#x5C45;&#x7684;&#x8DDD;&#x79BB;&#x3002;&#x6CE8;&#x610F;&#x5728;&#x8FD9;&#x4E2A;k&#x90BB;&#x5C45;&#x662F;&#x6307;&#x5728;&#x8FD9;&#x4E2A;&#x8DDD;&#x79BB;&#x5185;&#x7684;&#x6240;&#x6709;&#x6837;&#x672C;&#x70B9;&#xFF0C;&#x771F;&#x5B9E;&#x4E2A;&#x6570;&#x53EF;&#x80FD;&#x4E0D;&#x6B62;K&#x4E2A;&#xFF0C;&#x6837;&#x672C;&#x70B9;&#x96C6;&#x5408;&#x5B9A;&#x4E49;&#x4E3A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mi>N</mi><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>A</mi><mo>)</mo></mstyle></mrow></mrow><annotation encoding="application/x-tex"> {\displaystyle N_{k}(A)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span></span></span></span></span>.</p>
+</li>
+<li><p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mi>e</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>a</mi><mi>b</mi><mi>i</mi><mi>l</mi><mi>i</mi><mi>t</mi><mi>y</mi><mo>&#x2212;</mo><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><msub><mi>e</mi><mrow><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex"> reachability-distance_{k}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">e</span><span class="mord mathit">a</span><span class="mord mathit">c</span><span class="mord mathit">h</span><span class="mord mathit">a</span><span class="mord mathit">b</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mbin">&#x2212;</span><span class="mord mathit">d</span><span class="mord mathit">i</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord mathit">c</span><span class="mord"><span class="mord mathit">e</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>: B&#x5230;A&#x7684;k-&#x53EF;&#x8FBE;&#x8DDD;&#x79BB;&#xFF0C; &#x662F;A&#x5230;B&#x7684;&#x771F;&#x5B9E;&#x8DDD;&#x79BB;, &#x5E76;&#x4E14;&#x81F3;&#x5C11;&#x662F;</p>
+</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>k</mi><mo>&#x2212;</mo><mi>d</mi><mi>i</mi><mi>s</mi><mi>t</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi></mrow><mo>(</mo><mi>B</mi><mo>)</mo></mstyle></mrow></mrow><annotation encoding="application/x-tex"> 
+{\displaystyle {k-distance}(B)} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord displaystyle textstyle uncramped reset-textstyle displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mbin">&#x2212;</span><span class="mord mathit">d</span><span class="mord mathit">i</span><span class="mord mathit">s</span><span class="mord mathit">t</span><span class="mord mathit">a</span><span class="mord mathit">n</span><span class="mord mathit">c</span><span class="mord mathit">e</span></span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.05017em;">B</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span></span></span></span></span>,&#x5373;&#xFF1A;
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mstyle scriptlevel="0" displaystyle="true"><mi>N</mi><mi>a</mi><msub><mi>N</mi><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>=</mo><mi>max</mi><mo>(</mo><mi>N</mi><mi>a</mi><mi>N</mi><mo>(</mo><mi>B</mi><mo>)</mo><mo separator="true">,</mo><mi>d</mi><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo><mo>)</mo></mstyle></mrow></mrow><annotation encoding="application/x-tex">{\displaystyle NaN_{k}(A,B)=\max(NaN(B),d(A,B))}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.10903em;">N</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">a</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span><span class="mpunct reset-textstyle displaystyle textstyle uncramped">,</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.05017em;">B</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span><span class="mrel reset-textstyle displaystyle textstyle uncramped">=</span><span class="mop reset-textstyle displaystyle textstyle uncramped">max</span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.10903em;">N</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">a</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.10903em;">N</span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.05017em;">B</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span><span class="mpunct reset-textstyle displaystyle textstyle uncramped">,</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">d</span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span><span class="mpunct reset-textstyle displaystyle textstyle uncramped">,</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped" style="margin-right:0.05017em;">B</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span></span></span></span></span>
+&#x5B9A;&#x4E49;&#x8FD9;&#x79CD;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x7684;&#x76EE;&#x7684;&#x662F;&#xFF0C;&#x5BF9;&#x4E8E;B&#x9644;&#x8FD1;&#x7684;K&#x4E2A;&#x90BB;&#x5C45;&#x90FD;&#x8D4B;&#x4E88;&#x76F8;&#x540C;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x56E0;&#x4E3A;&#x8BA1;&#x7B97;&#x8D77;&#x5BC6;&#x5EA6;&#x6765;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6BD4;&#x4E00;&#x822C;&#x7684;&#x6B27;&#x5F0F;&#x8DDD;&#x79BB;&#x66F4;&#x52A0;&#x7A33;&#x5B9A;&#x3002;</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mo>(</mo><mi>A</mi><mo>)</mo></mstyle></mrow><annotation encoding="application/x-tex">\displaystyle (A)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span></span></span></span>:  &#x5C40;&#x90E8;&#x53EF;&#x8FBE;&#x5BC6;&#x5EA6;, &#x5C31;&#x662F;A&#x7684;k&#x90BB;&#x5C45;&#x5230;A&#x7684;&#x53EF;&#x8FBE;&#x8DDD;&#x79BB;&#x7684;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x6C42;&#x4E2A;&#x5012;&#x6570;&#x3002;
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mstyle scriptlevel="0" displaystyle="true"><mo>(</mo><mi>A</mi><mo>)</mo><mo>:</mo><mo>=</mo><mn>1</mn><mi mathvariant="normal">/</mi><mrow><mo fence="true">(</mo><mrow><mfrac><mrow><msub><mo>&#x2211;</mo><mrow><mi>B</mi><mo>&#x2208;</mo><msub><mi>N</mi><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>A</mi><mo>)</mo></mrow></msub><mi>N</mi><mi>a</mi><msub><mi>N</mi><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>A</mi><mo separator="true">,</mo><mi>B</mi><mo>)</mo></mrow><mrow><mi mathvariant="normal">&#x2223;</mi><msub><mi>N</mi><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>A</mi><mo>)</mo><mi mathvariant="normal">&#x2223;</mi></mrow></mfrac></mrow><mo fence="true">)</mo></mrow></mstyle></mrow></mrow><annotation encoding="application/x-tex">{\displaystyle (A):=1/\left({\frac {\sum\limits _{B\in N_{k}(A)}NaN_{k}(A,B)}{|N_{k}(A)|}}\right)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.3560100000000004em;"></span><span class="strut bottom" style="height:4.206035em;vertical-align:-1.850025em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span><span class="mrel reset-textstyle displaystyle textstyle uncramped">:</span><span class="mrel reset-textstyle displaystyle textstyle uncramped">=</span><span class="mord mathrm reset-textstyle displaystyle textstyle uncramped">1</span><span class="mord mathrm reset-textstyle displaystyle textstyle uncramped">/</span><span class="minner displaystyle textstyle uncramped reset-textstyle displaystyle textstyle uncramped"><span class="mopen style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing mult"><span class="vlist"><span style="top:1.2050049999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="delimsizinginner delim-size4"><span>&#x239D;</span></span></span><span style="top:0.049995000000000074em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="delimsizinginner delim-size4"><span>&#x239C;</span></span></span><span style="top:-1.1950249999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="delimsizinginner delim-size4"><span>&#x239B;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord displaystyle textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mclose">)</span><span class="mord mathrm">&#x2223;</span></span></span></span><span style="top:-0.2300000000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-1.6060050000000001em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mop op-limits"><span class="vlist"><span style="top:0.9410049999999999em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05017em;">B</span><span class="mrel mtight">&#x2208;</span><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15122857142857138em;margin-right:0.07142857142857144em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen mtight">(</span><span class="mord mathit mtight">A</span><span class="mclose mtight">)</span></span></span></span><span style="top:-0.000005000000000088267em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="mop op-symbol small-op">&#x2211;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mord mathit">a</span><span class="mord"><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.10903em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">(</span><span class="mord mathit">A</span><span class="mpunct">,</span><span class="mord mathit" style="margin-right:0.05017em;">B</span><span class="mclose">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span><span class="mclose style-wrap reset-textstyle textstyle uncramped"><span class="delimsizing mult"><span class="vlist"><span style="top:1.2050049999999999em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="delimsizinginner delim-size4"><span>&#x23A0;</span></span></span><span style="top:0.049995000000000074em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="delimsizinginner delim-size4"><span>&#x239F;</span></span></span><span style="top:-1.1950249999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="delimsizinginner delim-size4"><span>&#x239E;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mstyle scriptlevel="0" displaystyle="true"><msub><mrow></mrow><mrow><mi>k</mi></mrow></msub><mo>(</mo><mi>A</mi><mo>)</mo></mstyle></mrow></mrow><annotation encoding="application/x-tex">{\displaystyle _{k}(A)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord reset-textstyle displaystyle textstyle uncramped"><span></span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen reset-textstyle displaystyle textstyle uncramped">(</span><span class="mord mathit reset-textstyle displaystyle textstyle uncramped">A</span><span class="mclose reset-textstyle displaystyle textstyle uncramped">)</span></span></span></span></span>: &#x6837;&#x672C;&#x70B9;A&#x7684;k&#x90BB;&#x5C45;&#x4EEC;&#x7684;&#x5E73;&#x5C40;&#x53EF;&#x8FBE;&#x5BC6;&#x5EA6;&#x548C;A&#x7684;&#x5C40;&#x90E8;&#x53EF;&#x8FBE;&#x5BC6;&#x5EA6;&#x7684;&#x6BD4;&#x503C;&#xFF0C;
+&#x8FD9;&#x4E2A;&#x53D6;&#x503C;&#x8DDF;1&#x8D8A;&#x63A5;&#x8FD1;&#xFF0C;&#x8BF4;&#x660E;A&#x8DDF;&#x90BB;&#x5C45;&#x7684;&#x884C;&#x4E3A;&#x8D8A;&#x50CF;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x5C0F;&#x4E8E;1&#x65F6;&#xFF0C;&#x8BF4;&#x660E;A&#x7684;&#x76F8;&#x5BF9;&#x90BB;&#x5C45;&#x66F4;&#x7A20;&#x5BC6;&#xFF08;inlier&#xFF09;, &#x8FD9;&#x4E2A;&#x503C;&#x5927;&#x4E8E;1&#x65F6;&#xFF0C;&#x8BF4;&#x660E;A&#x66F4;&#x50CF;&#x4E00;&#x4E2A;&#x79BB;&#x7FA4;&#x70B9;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5F02;&#x5E38;&#x503C;&#x4E86;&#x3002;</li>
+<li>n_neighbors&#xFF1A;n_neighbors&#x8868;&#x793A;&#x90BB;&#x5C45;&#x4E2A;&#x6570;(&#x4E00;&#x822C;&#x53D6;20).</li>
+<li>LOF&#x5F97;&#x5206;&#xFF1A;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x5F97;&#x5206;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F97;&#x5206;&#x8D8A;&#x9AD8;&#xFF0C;&#x8868;&#x793A;&#x5F02;&#x5E38;&#x7A0B;&#x5EA6;&#x8D8A;&#x5927;&#xFF0C;&#x5F97;&#x5206;&#x8D8A;&#x4F4E;&#x8868;&#x793A;&#x5F88;&#x6B63;&#x5E38;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x63A8;&#x65AD;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x5F53;&#x6210;&#x654F;&#x611F;&#x5EA6;&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="算法5-孤立森林iforest.html" class="navigation navigation-prev " aria-label="Previous page: 算法5-孤立森林iforest">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="算法7-单分类SVM.html" class="navigation navigation-next " aria-label="Next page: 算法7-单分类SVM">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"算法6-局部异常因子lof","level":"1.4.6","depth":2,"next":{"title":"算法7-单分类SVM","level":"1.4.7","depth":2,"path":"算法选择/算法7-单分类SVM.md","ref":"算法选择/算法7-单分类SVM.md","articles":[]},"previous":{"title":"算法5-孤立森林iforest","level":"1.4.5","depth":2,"path":"算法选择/算法5-孤立森林iforest.md","ref":"算法选择/算法5-孤立森林iforest.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"算法选择/算法6-局部异常因子lof.md","mtime":"2018-12-11T08:32:33.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-20T02:27:31.043Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
