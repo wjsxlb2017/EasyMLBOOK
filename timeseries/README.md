@@ -59,3 +59,18 @@
 正常模式：周期性跌零，周期性有数据
 
 ![image-20190114182435743](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114182435743.png)
+
+
+
+
+
+如何获取曲线的关键特征：
+
+1. 周期性： autocorrelation
+2. 周期offset：高斯核函数拟合分布举止
+3. 趋势判断：指数滑动平均
+4. 分析数据极值: 假设检验。
+
+
+
+![image-20190114190407015](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114190407015.png)
