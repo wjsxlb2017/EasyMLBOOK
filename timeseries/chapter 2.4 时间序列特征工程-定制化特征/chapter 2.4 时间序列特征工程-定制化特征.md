@@ -113,7 +113,7 @@ least_distance_index_after_shift|两个序列的最短距离|考虑时间偏置�
 
 
 
-波峰：
+波峰（peaks）：Use `findpeaks` to find values and locations of local maxima in a set of data.
 
 $$ x_{diff} = x[-1] - x[-2]​$$
 
@@ -131,7 +131,20 @@ trough_locations = np.where(doublediff2 == -2)[0] + 1
 
 
 
+```matlab
+load(fullfile(matlabroot,'examples','signal','spots_num.mat'))
 
+[pks,locs] = findpeaks(avSpots);
+
+plot(year,avSpots,year(locs),pks,'or')
+xlabel('Year')
+ylabel('Number')
+axis tight
+```
+
+
+
+![image-20190115002205289](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190115002205289.png)
 
 
 
@@ -139,3 +152,11 @@ trough_locations = np.where(doublediff2 == -2)[0] + 1
 
 
 [^3]: Hawkins D.Identification of Outliers.Chapman and Hall,London,1980
+
+
+
+https://ww2.mathworks.cn/help/signal/getting-started-with-signal-processing-toolbox.html
+
+
+
+https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/?utm_campaign=shareaholic&utm_medium=twitter&utm_source=socialnetwork
