@@ -32,12 +32,16 @@
 
 ![image-20190114174212541](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114174212541.png)
 
+
+
 4.合理范围的突变异常。
 指标：登录在线等周期性曲线
 正常模式：趋势呈周期性
 检测策略：检测突变点。
 
 ![image-20190114181500368](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114181500368.png)
+
+
 
 5.无规律指标识别。
 指标：毫无规律指标
@@ -46,9 +50,11 @@
 
 ![image-20190114181832710](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114181832710.png)
 
+
+
 6.指标：跑批数据
 正常模式：周期性毛刺点，但是周期间隔不明显，可能会有便宜。
-检测策略：
+检测策略：使用高斯核函数拟合分布极值？
 
 ![image-20190114182211015](/Users/stellazhao/Library/Application Support/typora-user-images/image-20190114182211015.png)
 
@@ -74,3 +80,4 @@
 
 
 ![image-20190114190407015](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114190407015.png)
+
