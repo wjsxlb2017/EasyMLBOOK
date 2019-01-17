@@ -166,11 +166,11 @@ $\hat X_{t+1|t} - \mu = \sum\limits_{i=1}^{p} \phi_i (X_{t-i} - \mu)+ \sum\limit
 高斯混合模型（Gaussian mixture model，简称GMM）是单高斯模型的延伸，GMM 能夠平滑地近似任意形狀的密度分佈。假设x是随机变量,则gmm可以表示为：
 $$p(x) = \sum\limits_{k=1}^K \pi_kN(x|\mu_k, \Sigma_k)$$
 $$\sum\limits_{k=1}^K \pi_k = 1$$
-这里$\pi_k$ 是混合系数（mixture coefficient,$N(x|\mu_k, \Sigma_k)$是高斯分布的第K个分量,K表示该分布一共有K个分量（Component).
+这里$\pi_k$ 是混合系数（mixture coefficient,$N(x|\mu_k, \Sigma_k)​$是高斯分布的第K个分量,K表示该分布一共有K个分量（Component).
 该分布的参数估计方法可以采用EM算法。
 
 二维的GMM(K=2)图示
-![IMAGE](resources/A1FACD90620D37E7D9F45350824C11CF.jpg)
+![IMAGE](../_image/A1FACD90620D37E7D9F45350824C11CF.jpg)
 
 二维的GMM(K=1)图示
 ![IMAGE](resources/0D15FB33E9EAF11A206C22CFF3615FF1.jpg)
@@ -179,16 +179,44 @@ $$\sum\limits_{k=1}^K \pi_k = 1$$
 为什么要研究时间序列的熵呢？请看下面两个时间序列：时间序列（1）：(1,2,1,2,1,2,1,2,1,2,...)时间序列（2）：(1,1,2,1,2,2,2,2,1,1,...)在时间序列（1）中，1 和 2 是交替出现的，而在时间序列（2）中，1 和 2 是随机出现的。在这种情况下，时间序列（1）则更加确定，时间序列（2）则更加随机。并且在这种情况下，两个时间序列的统计特征，例如均值，方差，中位数等等则是几乎一致的，说明用之前的统计特征并不足以精准的区分这两种时间序列。通常来说，要想描述一种确定性与不确定性，熵（entropy）是一种不错的指标。对于离散空间而言，一个系统的熵（entropy）可以这样来表示： 如果一个系统的熵（entropy）越大，说明这个系统就越混乱；如果一个系统的熵越小，那么说明这个系统就更加确定。提到时间序列的熵特征，一般来说有几个经典的例子，那就是 binned entropy，approximate entropy，sample entropy。下面来一一介绍时间序列中这几个经典的熵。
 ### Binned Entropy
 
-从熵的定义出发，可以考虑把时间序列    的取值进行分桶的操作。例如，可以把    这个区间等分为十个小区间，那么时间序列的取值就会分散在这十个桶中。根据这个等距分桶的情况，就可以计算出这个概率分布的熵（entropy）。i.e. Binned Entropy 就可以定义为： 其中   表示时间序列  的取值落在第    个桶的比例（概率），  表示桶的个数，  表示时间序列  的长度。如果一个时间序列的 Binned Entropy 较大，说明这一段时间序列的取值是较为均匀的分布在  之间的；如果一个时间序列的 Binned Entropy 较小，说明这一段时间序列的取值是集中在某一段上的
-### Approximate Entropy
+从熵的定义出发，可以考虑把时间序列的取值进行分桶的操作。例如，可以把这个区间等分为十个小区间，那么时间序列的取值就会分散在这十个桶中。根据这个等距分桶的情况，就可以计算出这个概率分布的熵（entropy）。i.e. Binned Entropy 就可以定义为： 其中   表示时间序列 的取值落在第    个桶的比例（概率），  表示桶的个数，  表示时间序列  的长度。如果一个时间序列的 Binned Entropy 较大，说明这一段时间序列的取值是较为均匀的分布在  之间的；如果一个时间序列的 Binned Entropy 较小，说明这一段时间序列的取值是集中在某一段上的
+### 近似熵（Approximate Entropy）
 
-回到本节的问题，如何判断一个时间序列是否具备某种趋势还是随机出现呢？这就需要介绍 Approximate Entropy 的概念了，Approximate Entropy 的思想就是把一维空间的时间序列提升到高维空间中，通过高维空间的向量之间的距离或者相似度的判断，来推导出一维空间的时间序列是否存在某种趋势或者确定性。那么，我们现在可以假设时间序列    的长度是  ，同时 Approximate Entropy 函数拥有两个参数，   与   ，下面来详细介绍 Approximate Entropy 的算法细节。Step 1. 固定两个参数，正整数    和正数   ，正整数  是为了把时间序列进行一个片段的提取，正数  是表示时间序列距离的某个参数。i.e. 需要构造新的  维向量如下：   Step 2. 通过新的向量  ，可以计算出哪些向量与    较为相似。i.e. 在这里，距离    可以选择    范数。在这个场景下，距离    通常选择为  范数。Step 3. 考虑函数 Step 4. 
+回到本节的问题，如何判断一个时间序列是否具备某种趋势还是随机出现呢？这就需要介绍 Approximate Entropy 的概念了，Approximate Entropy 的思想就是把一维空间的时间序列提升到高维空间中，通过高维空间的向量之间的距离或者相似度的判断，来推导出一维空间的时间序列是否存在某种趋势或者确定性。那么，我们现在可以假设时间序列$$\ u(1),u(2),\ldots ,u(N)]$$的长度是N，同时 Approximate Entropy 函数拥有两个参数m与r，下面来详细介绍 Approximate Entropy 的算法细节。
+
+Step 1. 固定两个参数，正整数m 和正数r，正整数m是为了把时间序列进行一个片段的提取，m表示片段的长度。正数r是表示时间序列距离的某个参数。i.e. 需要构造新的m维向量如下：  
+
+$$\mathbf {x} (1),\ldots ,\mathbf {x} (N-m+1)​$$, 其中第i个片段为
+
+![\mathbf {x} (i)=[u(i),u(i+1),\ldots ,u(i+m-1)]](https://wikimedia.org/api/rest_v1/media/math/render/svg/7a381f13040d6ff5c56e21221c91f04efb6820f3).
 
 
-Approximate Entropy 可以定义为： Remark.正整数    一般可以取值为 2 或者 3， 会基于具体的时间序列具体调整；如果某条时间序列具有很多重复的片段（repetitive pattern）或者自相似性（self-similarity pattern），那么它的 Approximate Entropy 就会相对小；反之，如果某条时间序列几乎是随机出现的，那么它的 Approximate Entropy 就会相对较大。
+
+Step 2. 通过新的向量$$\mathbf {x} (1),\ldots ,\mathbf {x} (N-m+1)​$$，可以计算出哪些向量较为相似。在这里，距离函数$$d[x,x^{*}]​$$,可以选择无穷范数, 即
+
+ $$d[x,x^{*}]=\max _{a}|u(a)-u^{*}(a)|$$
+
+$$\displaystyle C_{i}^{m}(r)$$ 表示跟$$\mathbf {x} (i)$$相似的向量占所有向量的比例，可以解读为“合群”的程度。
+
+$${\displaystyle C_{i}^{m}(r)=({\text{number of }}x(j){\text{ such that }}d[x(i),x(j)]\leq r)/(N-m+1)\,}$$
 
 
-### Sample Entropy
+
+Step 3. 考虑函数
+
+$${\displaystyle \Phi ^{m}(r)=(N-m+1)^{-1}\sum _{i=1}^{N-m+1}\log(C_{i}^{m}(r))}$$,
+
+表示所有新向量跟其他成员相似度的平均值。
+
+
+
+Step 4. Approximate Entropy 可以定义为： 
+
+$$\mathrm {ApEn} =\Phi ^{m}(r)-\Phi ^{m+1}(r).​$$
+
+Remark.正整数m一般可以取值为 2 或者 3， 会基于具体的时间序列具体调整；如果某条时间序列具有很多重复的片段（repetitive pattern）或者自相似性（self-similarity pattern），那么它的 Approximate Entropy 就会相对小；反之，如果某条时间序列几乎是随机出现的，那么它的 Approximate Entropy 就会相对较大。
+
+### 样本熵（Sample Entropy）
 
 除了 Approximate Entropy，还有另外一个熵的指标可以衡量时间序列，那就是 Sample Entropy，通过自然对数的计算来表示时间序列是否具备某种自相似性。按照以上 Approximate Entropy 的定义，可以基于  与    定义两个指标    和  ，分别是  其中， 表示集合的元素个数。根据度量   （无论是   ）的定义可以知道  ，因此 Sample Entropy 总是非负数，i.e. Remark.Sample Entropy 总是非负数；Sample Entropy 越小表示该时间序列具有越强的自相似性（self similarity）。通常来说，在 Sample Entropy 的参数选择中，可以选择
 

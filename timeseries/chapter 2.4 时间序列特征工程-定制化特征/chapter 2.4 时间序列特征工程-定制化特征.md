@@ -116,7 +116,7 @@ least_distance_index_after_shift|两个序列的最短距离|考虑时间偏置�
 
    一阶差分序列
 
-​        $$ \Delta X_t= x_{t} - x_{t-1}​$$
+​        $$ \Delta X_t= x_{t} - x_{t-1}$$
 
 2. 为了判断t时刻的点是否为peak：
 
@@ -188,6 +188,20 @@ vol|一阶差分标准差|一阶差分标准差|$std(X_{diff})$|
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 参考资料
 
 
@@ -196,7 +210,5 @@ vol|一阶差分标准差|一阶差分标准差|$std(X_{diff})$|
 
 
 https://ww2.mathworks.cn/help/signal/getting-started-with-signal-processing-toolbox.html
-
-
 
 https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/?utm_campaign=shareaholic&utm_medium=twitter&utm_source=socialnetwork
