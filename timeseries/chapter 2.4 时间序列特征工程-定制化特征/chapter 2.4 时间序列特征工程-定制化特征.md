@@ -186,11 +186,15 @@ vol|一阶差分标准差|一阶差分标准差|$std(X_{diff})$|
 
 ## 周期性
 
+怎样去评估
 
 
 
+![image-20190120110327181](/Users/stellazhao/tencent_workplace/gitlab/dataming/algorithm_doc/process-model/_image/ac.png)
 
 
+
+![image-20190120110142530](/Users/stellazhao/tencent_workplace/gitlab/dataming/algorithm_doc/process-model/_image/diff_locs.png)
 
 
 

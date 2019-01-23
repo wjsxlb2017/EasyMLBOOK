@@ -90,8 +90,8 @@ $$\ variance ={\frac{1}{N} \sum\limits_{t=1}^T (x_t - \hat x_t)^2}$$
 ### 中位数绝对偏差(MAD)
 中位数绝对偏差（Median absolute deviation, ）是一种衡量样本差异性的指标。当样本中有极值存在时，mad相对标准差更加鲁棒。
 
-${\displaystyle \operatorname {MAD} =\operatorname {median} \left(\ \left|X_{i}-\operatorname {median} (X)\right|\ \right),\,}$
-。
+${\displaystyle \operatorname {MAD} =\operatorname {median} \left(\ \left|X_{i}-\operatorname {median} (X)\right|\ \right),\,}​$
+。 
 
 
 ### 峰度
