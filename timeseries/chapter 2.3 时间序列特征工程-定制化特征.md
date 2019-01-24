@@ -36,12 +36,12 @@ $$diff_t = y_t - y_{t-1} $$
 
 参与比较的对象：当前时刻的时序值和上个时刻的时序值，距离函数是比值。
 
-$$rate_t = y_t / y_{t-1}$$
+$$rate_t=y_t/y_{t-1}$$
 
 - 环比变化率
 
  参与比较的对象：当前时刻的时序值和上个时刻的时序值，距离函数是增长率。
-  $$rate_t =( y_t - y_{t-1}) / y_{t-1}​$$
+  $$rate_t =( y_t - y_{t-1})/y_{t-1}$$
 
 ### 2.对比dist * 统计量s
 
@@ -49,7 +49,7 @@ $$rate_t = y_t / y_{t-1}$$
 
 波动率差分vol_diff:
 
-${vol}_t = \sqrt{\frac{1}{w} \sum\limits_{i = 1}^w (y_{t-i+1} - \bar y_t)^2}$
+${vol}_t = \sqrt{\frac{1}{w} \sum\limits_{i = 1}^w (y_{t-i+1} - \bar y_t)^2}​$
 
 $f_t= {vol}_t - vol_{t-1} $
 
@@ -76,24 +76,24 @@ $${\bar y}_{t, w_2} = {\frac{1}{w_2} \sum\limits_{i = 1}^{w_2} y_{t-i+1} }$$
 $$f_t= {\bar y}_{t, w_1}-{\bar y}_{t, w_2} $$
 其中$w_1$和$w_2$是窗口长度, 并且$$w_1  > w_2$$。
 
-如果$$f_t>0$$，说明呈上升趋势
-如果$$f_t<0$$，说明呈3下降趋势
+如果$$f_t>0​$$，说明呈上升趋势
+如果$$f_t<0​$$，说明呈3下降趋势
 
 
 #### 3.2 历史均值差分 
 历史均值偏移 (history_detector):计算当前窗口最后一个点跟历史窗口均值的差
-$$|\left| x_i - mean(X_{history\_window}))\right| ​$$
+$$| x_i - mean(X_{historywindow}))| ​$$
 
 #### 3.3 历史斜率差分
 
 历史斜率偏移(history_trend_detector)
 计算当前窗口的斜率跟历史窗口斜率的差值
-$$slope(X_{curren\_window}) - slope(X_{history\_window}))​$$
+$$slope(X_{currenwindow}) - slope(X_{historywindow}))​$$
 
 #### 3.4 历史相似性
 
 历史相似性（correlation_distance）：计算当前窗口的跟历史窗口的相关系数
-$$correlation(X_{curren\_window},X_{history\_window})) = \frac{\sum\limits_{t=1}^{n-1} (X_t- \bar X )(Y_{t}-\bar Y) }{\sqrt{\sum\limits_{t=1}^{n} (X_t- \bar X_t )^2}\sqrt{\sum\limits_{t=1}^{n} (y_t- \bar y_t )^2}}​$$
+$$correlation(X_{currenwindow},X_{historywindow})) = \frac{\sum\limits_{t=1}^{n-1} (X_t- \bar X )(Y_{t}-\bar Y) }{\sqrt{\sum\limits_{t=1}^{n} (X_t- \bar X_t )^2}\sqrt{\sum\limits_{t=1}^{n} (y_t- \bar y_t )^2}}$$
 
 ## 基于模型的异常特征
 
@@ -127,7 +127,7 @@ $$\hat x_i - x_i = least\_square\_predict(x_i) - x_i = (X^T X)^{-1}XY * X_i - x_
 
 基于绝对离差中位数的异常得分(mad_detector):检测最后一个点偏离整个窗口的程度,
 
-$$\left| x_i - mad(X_{curren\_window})) \right|$$
+$$| x_i - mad(X_{curren\_window})) |$$
 
 
 

@@ -65,7 +65,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="chapter 2.1  时间序列特征工程介绍/chapter 2.1  时间序列特征工程介绍.md" />
+    <link rel="next" href="chapter 2.1时间序列特征工程介绍.html" />
     
     
 
@@ -108,12 +108,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="chapter 2.1  时间序列特征工程介绍/chapter 2.1  时间序列特征工程介绍.md">
+        <li class="chapter " data-level="1.2" data-path="chapter 2.1时间序列特征工程介绍.html">
             
-                <span>
+                <a href="chapter 2.1时间序列特征工程介绍.html">
             
                     
-                    chapter 2.1  时间序列特征工程介绍
+                    chapter 2.1时间序列特征工程介绍
             
                 </a>
             
@@ -121,12 +121,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="chapter 2.2 时间序列特征空间构建/chapter 2.2 时间序列特征空间构建.html">
+        <li class="chapter " data-level="1.3" data-path="chapter 2.2 时间序列特征工程-常见特征介绍.html">
             
-                <a href="chapter 2.2 时间序列特征空间构建/chapter 2.2 时间序列特征空间构建.html">
+                <a href="chapter 2.2 时间序列特征工程-常见特征介绍.html">
             
                     
-                    chapter 2.2 时间序列特征空间构建
+                    chapter 2.2 时间序列特征工程-常见特征介绍
             
                 </a>
             
@@ -134,25 +134,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="chapter 2.3 时间序列特征工程-常见特征介绍/chapter 2.3 时间序列特征工程-常见特征介绍.html">
+        <li class="chapter " data-level="1.4" data-path="chapter 2.3 时间序列特征工程-定制化特征.html">
             
-                <a href="chapter 2.3 时间序列特征工程-常见特征介绍/chapter 2.3 时间序列特征工程-常见特征介绍.html">
-            
-                    
-                    chapter 2.3 时间序列特征工程-常见特征介绍
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="chapter 2.4 时间序列特征工程-定制化特征/chapter 2.4 时间序列特征工程-定制化特征.html">
-            
-                <a href="chapter 2.4 时间序列特征工程-定制化特征/chapter 2.4 时间序列特征工程-定制化特征.html">
+                <a href="chapter 2.3 时间序列特征工程-定制化特征.html">
             
                     
-                    chapter 2.4 时间序列特征工程-定制化特征
+                    chapter 2.3 时间序列特征工程-定制化特征
             
                 </a>
             
@@ -205,7 +192,57 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="introduction">Introduction</h1>
+                                <h1 id="&#x65F6;&#x5E8F;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;">&#x65F6;&#x5E8F;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;</h1>
+<h2 id="&#x5F15;&#x8A00;">&#x5F15;&#x8A00;</h2>
+<p>&#x65F6;&#x5E8F;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x5C31;&#x662F;&#x5BF9;&#x65F6;&#x95F4;&#x5E8F;&#x5217;&#x6570;&#x636E;&#x76D1;&#x6D4B;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="&#x6280;&#x672F;&#x96BE;&#x70B9;">&#x6280;&#x672F;&#x96BE;&#x70B9;</h2>
+<p>&#x5F88;&#x96BE;&#x7528;&#x4E00;&#x4E9B;&#x7B56;&#x7565;&#x53BB;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x670D;&#x52A1;&#xFF0C;&#x56E0;&#x4E3A;&#x76D1;&#x63A7;&#x6307;&#x6807;&#x5404;&#x5F02;&#xFF08;&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#x5404;&#x5F02;&#xFF09;&#xFF0C;&#x5F02;&#x5E38;&#x5404;&#x5F02;&#xFF08;&#x5F02;&#x5E38;&#x7C7B;&#x578B;&#x591A;&#x79CD;&#xFF09;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x6BD4;&#x8F83;&#x96BE;&#x8BC6;&#x522B;&#x7684;&#x51E0;&#x4E2A;&#x66F2;&#x7EBF;&#x548C;&#x5F02;&#x5E38;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>1.&#x5386;&#x53F2;&#x6570;&#x636E;&#x6709;&#x4E2D;&#x65AD;&#x7F3A;&#x5931;
+&#x6307;&#x6807;&#xFF1A;&#x5728;&#x7EBF;&#x6570;&#x636E;&#x7531;&#x4E8E;&#x6570;&#x636E;&#x8D28;&#x91CF;&#x6709;&#x4E2D;&#x65AD;&#x7F3A;&#x5931;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A; &#x5386;&#x53F2;&#x6570;&#x636E;&#x6709;&#x7F3A;&#x5931;
+&#x68C0;&#x6D4B;&#x7B56;&#x7565;&#xFF1A;&#x5148;&#x4F7F;&#x7528;&#x6B63;&#x5E38;&#x6570;&#x636E;&#x586B;&#x5145;&#x518D;&#x68C0;&#x6D4B;&#x3002;</p>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114173717116.png" alt="image-20190114173717116"></p>
+<p>2.&#x6574;&#x4F53;&#x8D8B;&#x52BF;&#x53D8;&#x5316;&#xFF1A;&#x8D8B;&#x52BF;&#x6F02;&#x79FB;&#x662F;&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#x3002;
+&#x6307;&#x6807;&#xFF1A; &#x6E38;&#x620F;&#x6536;&#x5165;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A;&#x6E38;&#x620F;&#x6536;&#x5165;&#x5728;&#x5F00;&#x5B66;&#x5B63;&#x8D8B;&#x52BF;&#x6F02;&#x79FB;&#x3002;
+&#x68C0;&#x6D4B;&#x7B56;&#x7565;&#xFF1A;&#x5B66;&#x4E60;&#x5E76;&#x4E14;&#x5254;&#x9664;&#x8FD9;&#x4E2A;&#x8D8B;&#x52BF;&#x6F02;&#x79FB;&#x3002;</p>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114173747851.png" alt="image-20190114173747851"></p>
+<p>3.&#x6307;&#x6807;&#xFF1A; &#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x65E5;&#x5FD7;&#x6570;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A;&#x5468;&#x671F;&#x6027;&#x6709;&#x6570;&#x636E;
+&#x68C0;&#x6D4B;&#x7B56;&#x7565;&#xFF1A;&#x68C0;&#x6D4B;&#x89C4;&#x5F8B;&#x884C;&#x4E3A;&#x6570;&#x636E;&#x7F3A;&#x5931;</p>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114174212541.png" alt="image-20190114174212541"></p>
+<p>4.&#x5408;&#x7406;&#x8303;&#x56F4;&#x7684;&#x7A81;&#x53D8;&#x5F02;&#x5E38;&#x3002;
+&#x6307;&#x6807;&#xFF1A;&#x767B;&#x5F55;&#x5728;&#x7EBF;&#x7B49;&#x5468;&#x671F;&#x6027;&#x66F2;&#x7EBF;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A;&#x8D8B;&#x52BF;&#x5448;&#x5468;&#x671F;&#x6027;
+&#x68C0;&#x6D4B;&#x7B56;&#x7565;&#xFF1A;&#x68C0;&#x6D4B;&#x7A81;&#x53D8;&#x70B9;&#x3002;</p>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114181500368.png" alt="image-20190114181500368"></p>
+<p>5.&#x65E0;&#x89C4;&#x5F8B;&#x6307;&#x6807;&#x8BC6;&#x522B;&#x3002;
+&#x6307;&#x6807;&#xFF1A;&#x6BEB;&#x65E0;&#x89C4;&#x5F8B;&#x6307;&#x6807;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A;&#x5728;&#x4E00;&#x5B9A;&#x7EDF;&#x8BA1;&#x8303;&#x56F4;&#x5185;&#x6CE2;&#x52A8;
+&#x5F02;&#x5E38;&#x68C0;&#x6D4B;&#x7B56;&#x7565;&#xFF1A;&#x76F8;&#x5BF9;&#x5386;&#x53F2;&#x5206;&#x5E03;&#x7684;&#x6781;&#x7AEF;&#x5F02;&#x5E38;&#x503C;&#x3002;</p>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114181832710.png" alt="image-20190114181832710"></p>
+<p>6.&#x6307;&#x6807;&#xFF1A;&#x8DD1;&#x6279;&#x6570;&#x636E;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A;&#x5468;&#x671F;&#x6027;&#x6BDB;&#x523A;&#x70B9;&#xFF0C;&#x4F46;&#x662F;&#x5468;&#x671F;&#x95F4;&#x9694;&#x4E0D;&#x660E;&#x663E;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x504F;&#x79FB;&#x3002;
+&#x68C0;&#x6D4B;&#x7B56;&#x7565;&#xFF1A;&#x4F7F;&#x7528;&#x9AD8;&#x65AF;&#x6838;&#x51FD;&#x6570;&#x62DF;&#x5408;&#x5206;&#x5E03;&#x6781;&#x503C;&#xFF1F;</p>
+<ol>
+<li>&#x4F7F;&#x7528;dtw&#x53BB;&#x8861;&#x91CF;&#x4E24;&#x4E2A;&#x7A97;&#x53E3;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x517C;&#x5BB9;&#x504F;&#x5DEE;&#x3002;</li>
+<li>&#x5728;&#x5386;&#x53F2;&#x6570;&#x636E;&#x4E2D;&#x4F7F;&#x7528;&#x6EDA;&#x52A8;&#x7A97;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x6700;&#x8FD1;&#x7684;&#x7A97;&#x53E3;&#x3002;</li>
+</ol>
+<p><img src="Users/stellazhao/Library/Application Support/typora-user-images/image-20190114182211015.png" alt="image-20190114182211015"></p>
+<ol>
+<li>&#x5468;&#x671F;&#x6027;&#x660E;&#x663E;&#x6570;&#x636E;
+&#x6307;&#x6807;&#xFF1A;&#x94F6;&#x884C;&#x7684;&#x4E1A;&#x52A1;&#x6570;&#x636E;
+&#x6B63;&#x5E38;&#x6A21;&#x5F0F;&#xFF1A;&#x5468;&#x671F;&#x6027;&#x8DCC;&#x96F6;&#xFF0C;&#x5468;&#x671F;&#x6027;&#x6709;&#x6570;&#x636E;</li>
+</ol>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114182435743.png" alt="image-20190114182435743"></p>
+<p>&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x66F2;&#x7EBF;&#x7684;&#x5173;&#x952E;&#x7279;&#x5F81;&#xFF1A;</p>
+<ol>
+<li>&#x5468;&#x671F;&#x6027;&#xFF1A; autocorrelation</li>
+<li>&#x5468;&#x671F;offset&#xFF1A;&#x9AD8;&#x65AF;&#x6838;&#x51FD;&#x6570;&#x62DF;&#x5408;&#x5206;&#x5E03;&#x4E3E;&#x6B62;</li>
+<li>&#x8D8B;&#x52BF;&#x5224;&#x65AD;&#xFF1A;&#x6307;&#x6570;&#x6ED1;&#x52A8;&#x5E73;&#x5747;</li>
+<li>&#x5206;&#x6790;&#x6570;&#x636E;&#x6781;&#x503C;: &#x5047;&#x8BBE;&#x68C0;&#x9A8C;&#x3002;</li>
+</ol>
+<p><img src="Users/stellazhao/statistics_studyplace/EasyML_BOOK/_image/image-20190114190407015.png" alt="image-20190114190407015"></p>
 
                                 
                                 </section>
@@ -234,7 +271,7 @@
             
                 
                 
-                <a href="chapter 2.1  时间序列特征工程介绍/chapter 2.1  时间序列特征工程介绍.md" class="navigation navigation-next navigation-unique" aria-label="Next page: chapter 2.1  时间序列特征工程介绍">
+                <a href="chapter 2.1时间序列特征工程介绍.html" class="navigation navigation-next navigation-unique" aria-label="Next page: chapter 2.1时间序列特征工程介绍">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -245,7 +282,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"chapter 2.1  时间序列特征工程介绍","level":"1.2","depth":1,"path":"chapter 2.1  时间序列特征工程介绍/chapter 2.1  时间序列特征工程介绍.md","ref":"chapter 2.1  时间序列特征工程介绍/chapter 2.1  时间序列特征工程介绍.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-12-13T11:27:40.131Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-14T03:06:21.168Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"chapter 2.1时间序列特征工程介绍","level":"1.2","depth":1,"path":"chapter 2.1时间序列特征工程介绍.md","ref":"chapter 2.1时间序列特征工程介绍.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["katex","page-toc","livereload"],"pluginsConfig":{"livereload":{},"search":{},"position":"before-first","page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"showByDefault":true,"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4"},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-01-15T07:32:42.990Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-23T14:34:20.483Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

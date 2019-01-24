@@ -8,10 +8,10 @@
 ![IMAGE](./_image/83934C5C8CAF6D62CDDAE161E7286337.jpg)
 
 通过不断的滚动窗口，提取某个时间点前置窗口的数据作为该样本点的特征：
-当$f$为恒等变换时，即$$f(X_t) =X_t，  R^{w} ->  R^{w},  $$时，就是将前置窗口的原始数据作为输入，构造的长度为w的特征向量。
-${X_t} = [y_{t-w},\dots,y_{t-1}, y_{t}]$
-$F_t = f(X_t)$ 
-这里t是时间戳,$F_t​$是该时间点的特征向量。
+当f为恒等变换时，即$$f(X_t)=X_t$$， $$ R^{w} ->  R^{w},  $$时，就是将前置窗口的原始数据作为输入，构造的长度为w的特征向量。
+$${X_t} = [y_{t-w},...,y_{t-1}, y_{t}]$$
+$$F_t=f(X_t)$$
+这里t是时间戳,​$$F_t$$是该时间点的特征向量。
 f是特征提取的函数，具体的函数可以参考下一章节。
 
 ### 时序预测场景举例
@@ -48,10 +48,6 @@ f是特征提取的函数，具体的函数可以参考下一章节。
 
 在通过模式变换后，可以得到多条时间序列曲线，对每一条曲线可以提取特征，组合得到最终的特征空间.
 ![IMAGE](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/timeseries/chapter%202.2%20%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4%E6%9E%84%E5%BB%BA/resources/ECE2282FB09058A01FFDDCA79DD671FD.jpg )
-
-
-
-
 
 
 
@@ -133,14 +129,13 @@ f是特征提取的函数，具体的函数可以参考下一章节。
 
 ### 标准差
 标准差是一种不确定性的度量指标，一个较大的标准差，代表大部分的数值和其平均值之间差异较大；一个较小的标准差，代表这些数值较接近平均值， 他的计算公式：
-$$\ SD= \sqrt{\frac{1}{N} \sum\limits_{t=1}^T (x_t - \hat x_t)^2}$$
+
+![image-20190123221835106](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/timeseries/_image/image-20190123221835106.png)
 
 
 ### 方差(Variance)
-方差跟标准差类似，也是一种不确定性的度量指标，， 他的计算公式：
-$$\ variance ={\frac{1}{N} \sum\limits_{t=1}^T (x_t - \hat x_t)^2}$$
-
-
+方差跟标准差类似，也是一种不确定性的度量指标， 他的计算公式：
+![image-20190123222002279](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/timeseries/_image/image-20190123222002279.png)
 
 ### 中位数绝对偏差(MAD)
 中位数绝对偏差（Median absolute deviation, ）是一种衡量样本差异性的指标。当样本中有极值存在时，mad相对标准差更加鲁棒。
@@ -174,7 +169,7 @@ ${\displaystyle \operatorname {MAD} =\operatorname {median} \left(\ \left|X_{i}-
 Amplitude = (top 5%的中位数– bottom5%的中位数)/2
 
 ## 自相关系数
-对于时间序列$\{Y_t\}$,在不同时刻t,s($\|s - t \|= k$) $Y_t$和$Y_s$的相关系数为k阶自相关系数$\hat\rho(k)$:
+对于时间序列$$\{Y_t\}$$,在不同时刻t,s($$\|s - t \|= k$$) $$Y_t$$和$$Y_s$$的相关系数为k阶自相关系数$$\hat\rho(k)$$:
 
 
 
@@ -199,7 +194,7 @@ $$\hat p(k) = \frac{ \rho_k -\alpha_{1}\rho_{k-1}-... -\alpha_{k-1}\rho_{1}}{ 1 
 ![IMAGE](resources/AD0E1A8740C525047D5927493B07A445.jpg)
 
 ## 自回归模型(Autoregressive Models)
-$AR(p)$模型，假设单条时序数据的取值为$ X_1 ,...,X_t $，
+$AR(p)​$模型，假设单条时序数据的取值为$ X_1 ,...,X_t ​$，
 
 在自回归模型中，t时刻的取值$X_t$,可以用前面一个长度为$p$的窗口的数据来刻画，也就是：
 
@@ -211,9 +206,10 @@ $$X_t = \sum\limits_{i=1}^{p} \phi_i X_{t-i}+ c+\epsilon_t$$
 
 滑动平均自回归模型($ARMA(p,q)$) 
 
-$\hat X_{t+1|t} - \mu = \sum\limits_{i=1}^{p} \phi_i (X_{t-i} - \mu)+ \sum\limits_{i=1}^{q} \theta_i \varepsilon_{t-i}+ c $
-对arma模型进行参数估计，得到$\phi_i, i = 1,2,...,p$,
-和$\varepsilon_j, j=1,2,...,q$,可作为时序特征。
+![image-20190123222352733](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/timeseries/_image/image-20190123222352733.png)
+
+对arma模型进行参数估计，得到$$\phi_i, i = 1,2,...,p$$,
+和$$\varepsilon_j$$, j=1,2,...,q,可作为时序特征。
 
 ###高斯混合模型(GMM)
 对于一些数据，我们用单高斯模型并不能很好的描述，于是引入了混合高斯分布。
@@ -241,25 +237,25 @@ $$\sum\limits_{k=1}^K \pi_k = 1$$
 
 Step 1. 固定两个参数，正整数m 和正数r，正整数m是为了把时间序列进行一个片段的提取，m表示片段的长度。正数r是表示时间序列距离的某个参数。i.e. 需要构造新的m维向量如下：  
 
-$$\mathbf {x} (1),\ldots ,\mathbf {x} (N-m+1)​$$, 其中第i个片段为
+$$\mathbf{x}(1),...,\mathbf{x}(N-m+1)$$, 其中第i个片段为
 
 ![\mathbf {x} (i)=[u(i),u(i+1),\ldots ,u(i+m-1)]](https://wikimedia.org/api/rest_v1/media/math/render/svg/7a381f13040d6ff5c56e21221c91f04efb6820f3).
 
 
 
-Step 2. 通过新的向量$$\mathbf {x} (1),\ldots ,\mathbf {x} (N-m+1)​$$，可以计算出哪些向量较为相似。在这里，距离函数$$d[x,x^{*}]​$$,可以选择无穷范数, 即
+Step 2. 通过新的向量$$\mathbf {x} (1),...,\mathbf{x}(N-m+1)$$，可以计算出哪些向量较为相似。在这里，距离函数$$d[x,x^{*}]$$,可以选择无穷范数, 即
 
  $$d[x,x^{*}]=\max _{a}|u(a)-u^{*}(a)|$$
 
-$$\displaystyle C_{i}^{m}(r)$$ 表示跟$$\mathbf {x} (i)$$相似的向量占所有向量的比例，可以解读为“合群”的程度。
+$$C_{i}^{m}(r)$$ 表示跟$$\mathbf {x} (i)$$相似的向量占所有向量的比例，可以解读为“合群”的程度。
 
-$${\displaystyle C_{i}^{m}(r)=({\text{number of }}x(j){\text{ such that }}d[x(i),x(j)]\leq r)/(N-m+1)\,}$$
+$$C_{i}^{m}(r)=({\text{number of }}x(j){\text{ such that }}d[x(i),x(j)]\leq r)/(N-m+1)$$
 
 
 
 Step 3. 考虑函数
 
-$${\displaystyle \Phi ^{m}(r)=(N-m+1)^{-1}\sum _{i=1}^{N-m+1}\log(C_{i}^{m}(r))}$$,
+$$\Phi ^{m}(r)=(N-m+1)^{-1}\sum _{i=1}^{N-m+1}\log(C_{i}^{m}(r))$$,
 
 表示所有新向量跟其他成员相似度的平均值。
 
@@ -267,7 +263,7 @@ $${\displaystyle \Phi ^{m}(r)=(N-m+1)^{-1}\sum _{i=1}^{N-m+1}\log(C_{i}^{m}(r))}
 
 Step 4. Approximate Entropy 可以定义为： 
 
-$$\mathrm {ApEn} =\Phi ^{m}(r)-\Phi ^{m+1}(r).​$$
+$$\mathrm {ApEn} =\Phi ^{m}(r)-\Phi ^{m+1}(r)$$
 
 Remark.正整数m一般可以取值为 2 或者 3， 会基于具体的时间序列具体调整；如果某条时间序列具有很多重复的片段（repetitive pattern）或者自相似性（self-similarity pattern），那么它的 Approximate Entropy 就会相对小；反之，如果某条时间序列几乎是随机出现的，那么它的 Approximate Entropy 就会相对较大。
 
@@ -282,7 +278,7 @@ Remark.正整数m一般可以取值为 2 或者 3， 会基于具体的时间序
   - 小波分析
 
 ### 傅里叶变换
-对于一个时间序列$\{X_t\}$，有离散傅里叶变换函数${\displaystyle f_{\omega}}$:
+对于一个时间序列$\{X_t\}$，有离散傅里叶变换函数$${\displaystyle f_{\omega}}$$:
 
 $$f_w = \sum\limits_{t=0}^{T-1} X_{t+1} e^{(-i2\pi/N)tn} \qquad \omega = 0,...,T-1$$
 
@@ -330,25 +326,24 @@ $$1 - \frac{Var(R_t)}{Var(X_t - S_t)}$$
 
 ## 滑动平均自回归模型(Autoregressive Moving Average)
 
-滑动平均自回归模型($ARMA(p,q)$) 
+滑动平均自回归模型(ARMA(p,q)) 
 
 $\hat X_{t+1|t} - \mu = \sum\limits_{i=1}^{p} \phi_i (X_{t-i} - \mu)+ \sum\limits_{i=1}^{q} \theta_i \varepsilon_{t-i}+ c $
 
 前s期的预测值为
-$\varepsilon_{t}  = X_t - \hat X_{t|t-1}$
-${\displaystyle \mathrm {\hat X_{t+s|t}} ={\begin{cases} 
-\sum\limits_{i=1}^p\phi_i\hat x_{t+s-i|t} +  
-\sum\limits_{i=s}^q\theta_i\hat \varepsilon_{t+s-i|t} 
-,&{\mbox{if }}s =1,2,...,q\\{
-}\sum\limits_{i=1}^p\phi_i\hat x_{t+s-i|t},
-&{\mbox{if }}s = q+1,q+2 ...,\end{cases}}}$
+
+![image-20190123222056283](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/timeseries/_image/image-20190123222056283.png)
+
+
+![image-20190123221145276](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/algorithm/_image/image-20190123221145276.png)
+
 其中
-$\hat X_{\tau|t} = X_{\tau}, \tau<=t$
+$$\hat X_{\tau|t} = X_{\tau}, \tau<=t$$
 
 下图是arima预测的效果图
 ![IMAGE](./resources/07B165BBD36B9F7BE39EF5C44FC28A77.jpg)
 
-$\left| x \right|$
+$$\left| x \right|$$
 
 [参考文献]
 https://zh.wikipedia.org/wiki/%E4%B8%AD%E4%BD%8D%E6%95%B8
