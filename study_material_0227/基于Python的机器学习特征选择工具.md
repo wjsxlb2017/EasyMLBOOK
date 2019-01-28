@@ -1,24 +1,14 @@
 
 
-
+[TOC]
 
 
 
 ![img](https://cdn-images-1.medium.com/max/2000/1*rqeNwjiakRS-SqsW9wCgrA.jpeg)
 
-# A Feature Selection Tool for Machine Learning in Python
-
 # 基于 Python 的机器学习特征选择工具
 
-## Using the FeatureSelector for efficient machine learning workflows
-
 ## 使用 FeatureSelector 实现高效的机器学习工作流
-
-[![Go to the profile of Will Koehrsen](https://cdn-images-1.medium.com/fit/c/100/100/1*SckxdIFfjlR-cWXkL5ya-g.jpeg)](https://towardsdatascience.com/@williamkoehrsen?source=post_header_lockup)
-
-[Will Koehrsen 威尔 · 科尔森](https://towardsdatascience.com/@williamkoehrsen)Follow 跟着
-
-Jun 22, 2018 2018年6月22日
 
 Feature selection, the process of finding and selecting the most useful features in a dataset, is a crucial step of the machine learning pipeline. Unnecessary features decrease training speed, decrease model interpretability, and, most importantly, decrease generalization performance on the test set.
 
@@ -43,8 +33,6 @@ The complete code is [available on GitHub](https://github.com/WillKoehrsen/featu
 完整的代码可以在 GitHub 上找到，我鼓励任何贡献。 功能选择器是一个正在进行的工作，并将继续改善基于社区的需求！
 
 ------
-
-#### Example Dataset
 
 #### 数据集示例
 
