@@ -1,115 +1,89 @@
-
+# 基于 Python 的机器学习特征选择工具
 
 [TOC]
 
-
-
-![img](https://cdn-images-1.medium.com/max/2000/1*rqeNwjiakRS-SqsW9wCgrA.jpeg)
-
-# 基于 Python 的机器学习特征选择工具
-
 ## 使用 FeatureSelector 实现高效的机器学习工作流
 
-Feature selection, the process of finding and selecting the most useful features in a dataset, is a crucial step of the machine learning pipeline. Unnecessary features decrease training speed, decrease model interpretability, and, most importantly, decrease generalization performance on the test set.
 
-特征选择是机器学习过程中的一个关键步骤，是在数据集中寻找和选择最有用的特征的过程。 不必要的特征会降低训练速度，降低模型的可解释性，最重要的是，会降低测试集的泛化性能。
+特征选择是机器学习过程中的一个关键步骤，是在数据集中寻找和选择最有用的特征的过程。 不必要的特征会降低训练速度，降低模型的可解释性，最重要的是，会降低在测试集的泛化性能。
 
-Frustrated by the ad-hoc feature selection methods I found myself applying over and over again for machine learning problems, I built a class for feature selection in Python [available on GitHub](https://github.com/WillKoehrsen/feature-selector). The `FeatureSelector` includes some of the most common feature selection methods:
 
-我发现自己一遍又一遍地应用特定的特征选择方法来解决机器学习问题，这让我感到沮丧，于是我在 GitHub 上构建了一个 Python 特征选择类。 功能选择器包括一些最常见的特征选择方法:
+我发现自己一遍又一遍地应用特定的特征选择方法来解决机器学习问题，这让我感到沮丧，于是我在 [available on GitHub](https://github.com/WillKoehrsen/feature-selector).  上构建了一个 基于Python的特征选择类。`FeatureSelector`包括一些最常见的特征选择方法:
 
-1. **Features with a high percentage of missing values** 缺失值百分比高的特性
-2. **Collinear (highly correlated) features** 共线(高度相关)特征
-3. **Features with zero importance in a tree-based model** 基于树模型的零重要特征
-4. **Features with low importance** 低重要性的特征
-5. **Features with a single unique value** 具有单个唯一值的特性
+1. 缺失值百分比高的特性
+2. 共线(高度相关)特征
+3. 基于树模型的零重要特征
+4. 低重要性的特征
+5. 具有单个唯一值的特性(id类特征)
 
-In this article we will walk through using the `FeatureSelector` on an example machine learning dataset. We’ll see how it allows us to rapidly implement these methods, allowing for a more efficient workflow.
+在本文中，我们将在一个示例机器学习数据集上使用  `FeatureSelector` 。 我们将看到如何快速使用这些方法，从而实现更高效的工作流。
 
-在本文中，我们将在一个示例机器学习数据集上使用 FeatureSelector。 我们将看到它如何允许我们快速实现这些方法，从而实现更高效的工作流。
 
-The complete code is [available on GitHub](https://github.com/WillKoehrsen/feature-selector) and I encourage any contributions. The Feature Selector is a work in progress and will continue to improve based on the community needs!
+### 数据集示例
 
-完整的代码可以在 GitHub 上找到，我鼓励任何贡献。 功能选择器是一个正在进行的工作，并将继续改善基于社区的需求！
 
-------
 
-#### 数据集示例
-
-For this example, we will use a sample of data from the [Home Credit Default Risk machine learning competition](https://www.kaggle.com/c/home-credit-default-risk) on Kaggle. (To get started with the competition, see [this article](https://towardsdatascience.com/machine-learning-kaggle-competition-part-one-getting-started-32fb9ff47426)). The entire dataset is [available for download](https://www.kaggle.com/c/home-credit-default-risk/data) and here we will use a sample for illustration purposes.
-
-对于这个例子，我们将使用来自 Kaggle 上举办的 Home Credit Default Risk 机器学习竞赛的数据样本。 (为了开始比赛，请看这篇文章)。 整个数据集可供下载，这里我们将使用一个示例进行说明。
+对于这个例子，我们将使用来自 Kaggle 上举办的 Home Credit Default Risk 机器学习竞赛的[数据样本](https://www.kaggle.com/c/home-credit-default-risk)。 
+为了开始比赛，请看这篇[文章](https://towardsdatascience.com/machine-learning-kaggle-competition-part-one-getting-started-32fb9ff47426)))。 整个数据集可供下载([available for download](https://www.kaggle.com/c/home-credit-default-risk/data))，这里我们将使用一个示例进行说明。
 
 
 
 ![img](https://cdn-images-1.medium.com/max/2000/1*W0qSMsheaWsXJBJ7i2pH4g.png)
 
-Example data. TARGET is the label for classification 示例数据。 Target 是用于分类的标签
+示例数据。 Target 是用于分类的标签
 
-The competition is a supervised classification problem and this is a good dataset to use because it has many missing values, numerous highly correlated (collinear) features, and a number of irrelevant features that do not help a machine learning model.
+
 
 这个竞赛是一个监督分类问题，这是一个很好的数据集，因为它有许多缺失值，许多高度相关(共线)的特征，和一些不相关的特征，不利于机器学习模型。
 
-#### Creating an Instance
 
-#### 创建一个实例
 
-To create an instance of the `FeatureSelector` class, we need to pass in a structured dataset with observations in the rows and features in the columns. We can use some of the methods with only features, but the importance-based methods also require training labels. Since we have a supervised classification task, we will use a set of features and a set of labels.
+### 创建一个实例
 
-要创建 FeatureSelector 类的实例，我们需要传入一个结构化的数据集，其中包含行中的观察值和列中的特性。 我们可以使用一些只有特征的方法，但是基于重要性的方法也需要训练标签。 由于我们有一个监督分类任务，我们将使用一组特征和一组标签。
-
-(Make sure to run this in the same directory as `feature_selector.py` )
+要创建 FeatureSelector 类的实例，我们需要传入一个结构化的数据集，其中行表示观测值，列表示特征。 我们可以使用一些只有特征的方法，但是基于重要性的方法也需要训练标签。 由于我们有一个监督分类任务，我们将使用一组特征和一组标签。
 
 (确保在与 feature selector.py 相同的目录中运行此命令)
 
-```
+```python
 from feature_selector import FeatureSelector
 # Features are in train and labels are in train_labels
 fs = FeatureSelector(data = train, labels = train_labels)
 ```
 
-#### Methods
 
-#### 方法
 
-The feature selector has five methods for finding features to remove. We can access any of the identified features and remove them from the data manually, or use the `remove` function in the Feature Selector.
+### 方法
 
-特性选择器有五种查找要删除的特性的方法。 我们可以访问任何已识别的特性并手动从数据中删除它们，或者使用 Feature Selector 中的 remove 函数。
+特征选择器有五种查找要删除特征的方法。 我们可以访问指定某个特征并手动删除，或者使用 Feature Selector 中的 remove 函数。
 
-Here we will go through each of the identification methods and also show how all 5 can be run at once. The `FeatureSelector` additionally has several plotting capabilities because visually inspecting data is a crucial component of machine learning.
+在这里，我们每种方法都试一遍，并显示如何一次运行5种方法。 另外，由于视觉检测数据是机器学习的关键组成部分，`FeatureSelector`还具有几个绘图功能。
 
-在这里，我们将通过每个标识方法，并显示如何所有5可以一次运行。 另外，由于视觉检测数据是机器学习的关键组成部分，FeatureSelector 还具有几个绘图功能。
 
-### Missing Values
 
-### 缺失值
+#### 缺失值
 
-The first method for finding features to remove is straightforward: find features with a fraction of missing values above a specified threshold. The call below identifies features with more than 60% missing values (**bold** is output).
 
-查找要删除的特征的第一种方法很简单: 查找缺失值小于指定阈值的特征。 下面的调用标识缺失值超过60% 的特性(粗体表示输出)。
+第一种特征过滤的方法很简单：查找缺失值小于指定阈值的特征。 下面的调用识别出缺失值超过60% 的特征(粗体表示输出)。
 
-```
+```python
 fs.identify_missing(missing_threshold = 0.6)
 17 features with greater than 0.60 missing values.
 ```
 
-We can see the fraction of missing values in every column in a dataframe:
 
-我们可以在一个数据框中看到每一列中缺失值的部分:
+我们可以在一个dataframe中看到每一列的缺失值比例:
 
-```
+```python
 fs.missing_stats.head()
 ```
 
-
-
 ![img](https://cdn-images-1.medium.com/max/1600/1*fpLJQBGZWhQXPFG5FyA1kg.png)
 
-To see the features identified for removal, we access the `ops` attribute of the `FeatureSelector` , a Python dict with features as lists in the values.
 
-为了查看要删除的特征，我们访问 FeatureSelector 的 ops 属性，这是一个 Python，它的特性是值中的列表。
 
-```
+为了查看要删除的特征，我们访问 FeatureSelector 的 `ops`  属性，这是一个 Python dict
+
+```python
 missing_features = fs.ops['missing']
 missing_features[:5]
 ['OWN_CAR_AGE',
@@ -119,11 +93,9 @@ missing_features[:5]
  'LIVINGAPARTMENTS_AVG']
 ```
 
-Finally, we have a plot of the distribution of missing values in all feature:
-
 最后，我们绘制了所有特征中缺失值的分布图:
 
-```
+```python
 fs.plot_missing()
 ```
 
@@ -131,28 +103,20 @@ fs.plot_missing()
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*0WBIKN83twXyWfyx9LG7Qg.png)
 
-### Collinear Features
+#### 共线性特征
 
-### 共线性特征
+[共线特征](https://www.quora.com/Why-is-multicollinearity-bad-in-laymans-terms-In-feature-selection-for-a-regression-model-intended-for-use-in-prediction-why-is-it-a-bad-thing-to-have-multicollinearity-or-highly-correlated-independent-variables)是彼此高度相关的特征。 在机器学习中，由于高方差和较低的模型可解释性，这些导致测试集上的泛化性能降低。
 
-[Collinear features](https://www.quora.com/Why-is-multicollinearity-bad-in-laymans-terms-In-feature-selection-for-a-regression-model-intended-for-use-in-prediction-why-is-it-a-bad-thing-to-have-multicollinearity-or-highly-correlated-independent-variables) are features that are highly correlated with one another. In machine learning, these lead to decreased generalization performance on the test set due to high variance and less model interpretability.
+ `identify_collinear` 方法通过指定的相关系数阈值找到共线性特征。 对于每一对线性相关的特征对，它确定其中一个要移除的特征(因为我们只需要移除一个) :
 
-共线特征是彼此高度相关的特征。 在机器学习中，由于高方差和较少的模型可解释性，这些导致测试集上的泛化性能降低。
-
-The `identify_collinear` method finds collinear features based on a specified [correlation coefficient](http://www.statisticshowto.com/probability-and-statistics/correlation-coefficient-formula/) value. For each pair of correlated features, it identifies one of the features for removal (since we only need to remove one):
-
-identify_collinear方法通过指定的相关系数阈值找到共线性特征。 对于每一对线性相关的特征对，它确定其中一个要移除的特征(因为我们只需要移除一个) :
-
-```
+```python
 fs.identify_collinear(correlation_threshold = 0.98)
 21 features with a correlation magnitude greater than 0.98.
 ```
 
-A neat visualization we can make with correlations is a heatmap. This shows all the features that have at least one correlation above the threshold:
-
 关于相关性，我们可以做出一个简洁的可视化图像，这就是热度图。 这里显示了至少有一个相关性高于阈值的所有特性:
 
-```
+```python
 fs.plot_collinear()
 ```
 
@@ -160,11 +124,9 @@ fs.plot_collinear()
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*_gK6g3YWylcgfL5Bz8JMUg.png)
 
-As before, we can access the entire list of correlated features that will be removed, or see the highly correlated pairs of features in a dataframe.
+与前面一样，我们可以访问将被删除的相关特征的整个列表，或者在dataframe中查看高度相关的特征对。
 
-与前面一样，我们可以访问将被删除的相关特性的整个列表，或者在数据框中查看高度相关的特性对。
-
-```
+```python
 # list of collinear features to remove
 collinear_features = fs.ops['collinear']
 # dataframe of collinear features
@@ -175,35 +137,31 @@ fs.record_collinear.head()
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*unCzyN2BgucGodbioUz-Kw.png)
 
-If we want to investigate our dataset, we can also make a plot of all the correlations in the data by passing in `plot_all = True` to the call:
 
-如果我们想要调查我们的数据集，我们也可以通过传入 plot all True to the call 来绘制数据中所有相关性的图:
+
+如果我们想要调查我们的数据集，我们也可以通过传入`plot_all = True`来绘制数据中所有相关性的图:
 
 
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*fcLsRYskgzWxVoxj4npfvg.png)
 
-### Zero Importance Features
+####  零重要性特征
 
-### 零重要性特征
 
-The previous two methods can be applied to any structured dataset and are **deterministic** — the results will be the same every time for a given threshold. The next method is designed only for supervised machine learning problems where we have labels for training a model and is non-deterministic. The `identify_zero_importance `function finds features that have zero importance according to a gradient boosting machine (GBM) learning model.
 
-前两种方法可以应用于任何结构化数据集，并且是确定性的ー对于给定的阈值，每次得到的结果都是相同的。 下一个方法是专门为监督式学习问题设计的，在这些问题中我们有用于训练模型的标签，并且是不确定的。 identify_zero_importance函数根据梯度提升机器学习模型找到零重要性的特征。
+前两种方法可以应用于任何结构化数据集，并且是确定性的ー对于给定的阈值，每次得到的结果都是相同的。 下一个方法是专门为监督式学习设计的，在这些问题中我们有用于训练模型的标签，并且是不确定的。 `identify_zero_importance `函数根据梯度提升机器学习模型（ (GBM) ）找到零重要性的特征。
 
-With tree-based machine learning models, [such as a boosting ensemble, we can find feature importances.](https://machinelearningmastery.com/feature-importance-and-feature-selection-with-xgboost-in-python/) The absolute value of the importance is not as important as the relative values, which we can use to determine the most relevant features for a task. We can also use feature importances for feature selection by removing zero importance features. In a tree-based model, the [features with zero importance are not used to split any nodes](https://www.salford-systems.com/blog/dan-steinberg/what-is-the-variable-importance-measure), and so we can remove them without affecting model performance.
+使用基于树的机器学习模型，例如 
 
-使用基于树的机器学习模型，例如 boosting 集成，我们可以发现特征的重要性。 重要性的绝对值不如相对值重要，因为我们可以用相对值来确定任务最相关的特征。 我们也可以通过去除零重要性特征来使用特征重要性进行特征选择。 在基于树的模型中，零重要性特征不用于分割任何节点，因此我们可以在不影响模型性能的情况下删除它们。
+[boosting 集成](https://machinelearningmastery.com/feature-importance-and-feature-selection-with-xgboost-in-python/) ，我们可以发现特征的重要性。 绝对重要系数不如相重要性系数重要，因为我们可以用相对值来确定任务最相关的特征。 我们也可以通过去除零重要性特征来使用特征重要性进行特征选择。 在基于树的模型中，[零重要性特征不用于分割任何节点](https://www.salford-systems.com/blog/dan-steinberg/what-is-the-variable-importance-measure),，因此我们可以在不影响模型性能的情况下删除它们。
 
-The `FeatureSelector` finds feature importances using the gradient boosting machine from the [LightGBM library](http://lightgbm.readthedocs.io/). The feature importances are averaged over 10 training runs of the GBM in order to reduce variance. Also, the model is trained using early stopping with a validation set (there is an option to turn this off) to prevent overfitting to the training data.
 
-使用 LightGBM 库的GBM的FeatureSelector能找到特征的重要性。 为了减少方差，对 GBM 的10次训练次数平均特征输入。 此外，使用验证集的早期停止训练模型(可以关闭此选项) ，以防止对训练数据过度拟合。
+使用  [LightGBM library](http://lightgbm.readthedocs.io/). 库的GBM的FeatureSelector能找到特征的重要性。 为了减少方差，对 GBM 训练10次求平均。 此外，使用验证集的早期停止训练模型(可以关闭此选项) ，以防止对训练数据过度拟合。
 
-The code below calls the method and extracts the zero importance features:
 
 下面的代码调用该方法并提取出零重要性特征:
 
-```
+```python
 # Pass in the appropriate parameters
 fs.identify_zero_importance(task = 'classification', 
                             eval_metric = 'auc', 
@@ -214,20 +172,17 @@ zero_importance_features = fs.ops['zero_importance']
 63 features with zero importance after one-hot encoding.
 ```
 
-The parameters we pass in are as follows:
 
 我们传入的参数如下:
 
-- `task` : either “classification” or “regression” corresponding to our problem : 与我们的问题相对应的"分类"或"回归"
-- `eval_metric`: metric to use for early stopping (not necessary if early stopping is disabled) : 公制用于提前停止(如果禁用提前停止，则无需提前停止)
-- `n_iterations` : number of training runs to average the feature importances over : 训练次数平均特征重要性超过
-- `early_stopping`: whether or not use early stopping for training the model : 是否使用提前停止训练模型
+- `task` :我们的问题相对应的"分类"或"回归"
+- `eval_metric`:  指标用于提前停止(如果禁用提前停止，则无需提前停止)
+- `n_iterations` : 训练次数，用于对重要性求平均
+- `early_stopping`:  是否使用提前停止训练模型
 
-This time we get two plots with `plot_feature_importances`:
+使用`plot_feature_importances`画图:
 
-这一次，我们得到了两个情节特征重要的情节:
-
-```
+```python
 # plot the feature importances
 fs.plot_feature_importances(threshold = 0.99, plot_n = 12)
 124 features required for 0.99 of cumulative importance
@@ -402,202 +357,6 @@ The `missing`, `collinear`, and `single_unique` methods are deterministic while 
 
 缺失的、共线的和唯一的方法是确定的，而基于特征重要性的方法将随着每次运行而改变。 特征选择，就像机器学习领域一样，在很大程度上是经验性的，需要测试多种组合才能找到最佳答案。 在一个管道中尝试多种配置是最佳实践，而且特征选择器提供了一种快速评估特征选择参数的方法。
 
-As always, I welcome feedback and constructive criticism. I want to emphasis that I’m looking for help on the `FeatureSelector`. Anyone can [contribute on GitHub](https://github.com/WillKoehrsen/feature-selector) and I appreciate advice from those who just uses the tool! I can also be reached on Twitter [@koehrsen_will](http://twitter.com/@koehrsen_will).
 
-一如既往，我欢迎反馈和建设性的批评。 我想强调的是，我正在寻求特性选择器的帮助。 任何人都可以在 GitHub 上做出贡献，我非常感谢那些只是使用这个工具的人的建议！ 我也可以通过 Twitter@koehrsen will 联系到。
 
-
-
-- [Machine Learning 机器学习](https://towardsdatascience.com/tagged/machine-learning?source=post)
-- [Python 巨蟒](https://towardsdatascience.com/tagged/python?source=post)
-- [Education 教育](https://towardsdatascience.com/tagged/education?source=post)
-- [Programming 编程](https://towardsdatascience.com/tagged/programming?source=post)
-- [Towards Data Science 走向数据科学](https://towardsdatascience.com/tagged/towards-data-science?source=post)
-
-
-
-Applause from you, 你们的掌声[Dipanjan (DJ) Sarkar](https://medium.com/@dipanzan.sarkar), and 及1,197 others 其他1197人
-
-22
-
-Follow 跟着
-
-[![Go to the profile of Will Koehrsen](https://cdn-images-1.medium.com/fit/c/120/120/1*SckxdIFfjlR-cWXkL5ya-g.jpeg)](https://towardsdatascience.com/@williamkoehrsen?source=footer_card)
-
-### [Will Koehrsen威尔 · 科尔森](https://towardsdatascience.com/@williamkoehrsen)
-
-Data Scientist at Cortex Intel, Data Science Communicator
-
-英特尔大脑皮层数据科学家，数据科学传播者
-
-Following 随后
-
-[![Towards Data Science](https://cdn-images-1.medium.com/fit/c/120/120/1*F0LADxTtsKOgmPa-_7iUEQ.jpeg)](https://towardsdatascience.com/?source=footer_card)
-
-### [Towards Data Science 走向数据科学](https://towardsdatascience.com/?source=footer_card)
-
-Sharing concepts, ideas, and codes.
-
-分享概念、想法和代码。
-
-
-
-
-
-More from Towards Data Science 更多关于数据科学
-
-Mastering the Data Science Interview 掌握数据科学访谈
-
-[![Go to the profile of Andrei Lyskov](https://cdn-images-1.medium.com/fit/c/72/72/1*xWjdj-z7-tuW2ZMU6lFW4g.jpeg)](https://towardsdatascience.com/@LyskovAndrei)
-
-Andrei Lyskov 安德烈 · 利斯科夫
-
-
-
-
-
-602
-
-
-
-
-
-
-
-More from Towards Data Science 更多关于数据科学
-
-The Next Level of Data Visualization in Python 数据可视化的下一个层次
-
-[![Go to the profile of Will Koehrsen](https://cdn-images-1.medium.com/fit/c/72/72/1*SckxdIFfjlR-cWXkL5ya-g.jpeg)](https://towardsdatascience.com/@williamkoehrsen)
-
-Will Koehrsen 威尔 · 科尔森
-
-
-
-
-
-7K
-
-
-
-
-
-
-
-More from Towards Data Science 更多关于数据科学
-
-The Poisson Distribution and Poisson Process Explained 泊松分佈和泊松过程的解释
-
-[![Go to the profile of Will Koehrsen](https://cdn-images-1.medium.com/fit/c/72/72/1*SckxdIFfjlR-cWXkL5ya-g.jpeg)](https://towardsdatascience.com/@williamkoehrsen)
-
-Will Koehrsen 威尔 · 科尔森
-
-
-
-
-
-1K
-
-
-
-
-
-Responses 回应
-
-![zhao shihuan](https://cdn-images-1.medium.com/fit/c/72/72/0*ChKB5CSx0kQrh_53)
-
-Write a response… 写一个回复... ..
-
-zhao shihuan 赵世桓
-
-
-
-Conversation between 他们之间的对话[Arthur Paulino 阿瑟 · 保利诺](https://medium.com/@arthurpaulino) and 及[Will Koehrsen 威尔 · 科尔森](https://medium.com/@williamkoehrsen).
-
-[![Go to the profile of Arthur Paulino](https://cdn-images-1.medium.com/fit/c/72/72/1*mnSzWEwKyMAJKKFGN5l_eA.jpeg)](https://medium.com/@arthurpaulino)
-
-Arthur Paulino 阿瑟 · 保利诺
-
-[Jun 25, 2018 2018年6月25日](https://medium.com/@arthurpaulino/keep-in-mind-that-these-ideas-should-be-validated-somehow-56062190b9e9?source=responses---------0---------------------)
-
-keep in mind that these ideas should be validated somehow. i’d perform cross-validations to validate each insight separately.
-
-记住，这些想法应该得到验证。 我会进行交叉验证，分别验证每个洞察力。
-
-
-
-16
-
-[1 response 1个响应](https://medium.com/@arthurpaulino/keep-in-mind-that-these-ideas-should-be-validated-somehow-56062190b9e9?source=responses---------0---------------------#--responses)
-
-[![Go to the profile of Will Koehrsen](https://cdn-images-1.medium.com/fit/c/72/72/1*SckxdIFfjlR-cWXkL5ya-g.jpeg)](https://medium.com/@williamkoehrsen)
-
-Will Koehrsen 威尔 · 科尔森
-
-[Jun 26, 2018 2018年6月26日](https://medium.com/@williamkoehrsen/this-is-a-very-good-point-any-feature-selection-or-feature-engineering-you-do-to-a-dataset-da97d38527fa?source=responses---------0---------------------)
-
-This is a very good point: any feature selection (or feature engineering) you do to a dataset should be thoroughly evaluated with cross validation to see if it has a beneficial effect. Machine learning is still largely an empirical field which means it’s nearly impossible to tell ahead of time what effect a particular choice will have on model…
-
-这是一个非常好的观点: 对数据集所做的任何特征选择(或特征工程)都应该通过交叉验证进行彻底评估，看看它是否有好处。 机器学习在很大程度上仍然是一个经验领域，这意味着几乎不可能提前知道一个特定的选择会对模型产生什么影响..。
-
-Read more… 阅读更多..
-
-
-
-20
-
-
-
-
-
-Conversation between 他们之间的对话[Rohit Wason 罗希特 · 瓦森](https://medium.com/@wasprobot) and 及[Will Koehrsen 威尔 · 科尔森](https://medium.com/@williamkoehrsen).
-
-[![Go to the profile of Rohit Wason](https://cdn-images-1.medium.com/fit/c/72/72/0*VBDublFHf7mAgINZ.jpeg)](https://medium.com/@wasprobot)
-
-Rohit Wason 罗希特 · 瓦森
-
-[Jun 26, 2018](https://medium.com/@wasprobot/what-a-great-article-585e96156063?source=responses---------1---------------------)
-
-What a great article! I am still going through the details of the functions in the FeatureSelector class, so it’ll take me more than the suggested 10-min to finish it, lol. But that only speaks to the simplicity you have brought to the act of mining a typical Kaggle-like dataset.
-
-Kudos, man! I am following you.
-
-
-
-5
-
-[1 response](https://medium.com/@wasprobot/what-a-great-article-585e96156063?source=responses---------1---------------------#--responses)
-
-[![Go to the profile of Will Koehrsen](https://cdn-images-1.medium.com/fit/c/72/72/1*SckxdIFfjlR-cWXkL5ya-g.jpeg)](https://medium.com/@williamkoehrsen)
-
-Will Koehrsen
-
-[Jun 29, 2018](https://medium.com/@williamkoehrsen/thanks-i-think-this-is-a-good-start-for-feature-selection-but-there-are-still-plenty-of-more-d01c0f8a1583?source=responses---------1---------------------)
-
-Thanks! I think this is a good start for feature selection, but there are still plenty of more methods to implement. I’m looking forward to seeing how others can build on this and any contributions on GitHub are welcome!
-
-
-
-4
-
-
-
-Show all responses
-
-
-
-
-
-- 
-
-  5.5K 5.5 k
-
-- 
-
-- 
-
-- 
-
-![img](http://staging.caiyunapp.com/imgs/webtrs/fanyi-btn-hover.png)
-
-![img](https://caiyunapp.com/imgs/webtrs/favorite-btn.png)
+ [contribute on GitHub](https://github.com/WillKoehrsen/feature-selector) 
