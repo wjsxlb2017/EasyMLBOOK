@@ -5,7 +5,7 @@
 
 在每一个时刻，可以利用之前的所有信息来计算该时刻的特征，以下图为例：
 
-![IMAGE](../../_image/83934C5C8CAF6D62CDDAE161E7286337.jpg)
+![IMAGE](./_image/83934C5C8CAF6D62CDDAE161E7286337.jpg)
 
 通过不断的滚动窗口，提取某个时间点前置窗口的数据作为该样本点的特征：
 当f为恒等变换时，即$$f(X_t)=X_t$$， $$ R^{w} ->  R^{w},  $$时，就是将前置窗口的原始数据作为输入，构造的长度为w的特征向量。
@@ -19,7 +19,7 @@ f是特征提取的函数，具体的函数可以参考下一章节。
 以预测模型为例，假设希望预测未来一周的值，可利用的历史数据有3周，
 这里如果使用基于滑动窗口的方式提取特征，窗口的长度就是3周（feature derivation window), 在这个窗口中，可以提取波动率，均值，滞后项等特征，用来预测未来1周的值。
 
-![IMAGE](/Users/stellazhao/statistics_studyplace/EasyML_BOOK/timeseries/chapter%202.2%20%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4%E6%9E%84%E5%BB%BA/resources/BBBA44FAEEAC377E812774A072E54387.jpg)
+![IMAGE](/Users/stellazhao/EasyML_BOOK/timeseries/chapter%202.2%20%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%89%B9%E5%BE%81%E7%A9%BA%E9%97%B4%E6%9E%84%E5%BB%BA/resources/BBBA44FAEEAC377E812774A072E54387.jpg)
 
 ## 时序模式变换
 
